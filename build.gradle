@@ -1,0 +1,32 @@
+plugins {
+  id "com.github.rzabini.gradle-jython" version "1.0.9"
+}
+
+apply plugin: 'java-library'
+
+
+repositories {
+  jcenter()
+  maven { url "https://jitpack.io" }
+  mavenLocal()
+}
+
+dependencies {
+  jython(group:'com.github.dialogos-project', name:'dialogos', version:'2.0.5') {
+    exclude module: 'DialogOS_SphinxPlugin'
+    exclude module: 'DialogOS_MaryTTSPlugin'
+	}
+	//jython(name:'beautifulsoup4',version:'0.0.1')
+}
+//jython {
+  //  pypackage 'python-dateutil:2.4.2','arrow:0.7.0', 'six:1.10.0'
+//}
+
+//
+
+//
+task runClient(type:jython.JythonTask) {
+	script file('cookclient_url.py')
+}
+
+
