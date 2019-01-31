@@ -27,7 +27,7 @@ Navigation auf der Kommandozeile
 -	mit .. kannst du eine Ordnerebene höher wechseln
 Beispiel für den Teil auf der Kommandozeile:
 
-Bildchen von Ausführen mit Mauszeuger drauf
+Bildchen von Ausführen mit Mauszeiger drauf
 
 Gib Feedback:
 -	Probleme, Wünsche, Anregungen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
