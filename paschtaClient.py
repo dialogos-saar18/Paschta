@@ -4,7 +4,7 @@ from com.clt.dialog.client import Client
 from com.clt.script.exp import Value
 #from testmodule import *
 import java.lang.Object
-from rezept_class_url import *
+from rezept_class import *
 
 from java.awt import BorderLayout, Color
 from javax.swing import JPanel, JFrame, JTextArea, JButton, BoxLayout, Box, JTextField

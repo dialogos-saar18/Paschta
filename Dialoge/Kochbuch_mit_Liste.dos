@@ -27,6 +27,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<plugin type="resources.de.dialogos.plugin">
+	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -277,7 +279,7 @@ $nein = ( nein [danke] | ne | falsch );</value>
 			<att name="ignoreInputHandlers" type="boolean" value="0"/>
 		</node>
 		<node uid="2b65daca-c5ef-43b6-8605-8c60b13d3c53" class="com.clt.diamant.graph.nodes.GotoNode">
-			<graphics x="1093" y="397" fill="#4c4c80"/>
+			<graphics x="1093" y="396" fill="#4c4c80"/>
 			<att name="title" type="string" value="contain"/>
 			<att name="label_uid" type="string" value="112a4283-2963-4437-9b71-71058dac5a25"/>
 		</node>
@@ -313,7 +315,7 @@ $nein = ( nein [danke] | ne | falsch );</value>
 			<att name="title" type="string" value="Zutatenwörterbuch einlesen"/>
 			<att name="script" type="text">
 				<value>//java.util.ArrayList fileContents = new File('C:/Users/Katharina/Documents/Studium/Dialogsysteme/Kochbuch/Kochbuch-master/klasse+client/Zutatenliste_unicode.txt').readLines('unicode')
-java.util.ArrayList fileContents = new File('C:/Users/TT/Documents/GitHub/Kochbuch/klasse+client/Zutatenliste_unicode.txt').readLines('unicode')
+java.util.ArrayList fileContents = new File('C:/Users/TT/Documents/GitHub/Kochbuch/klasse+client/Zutatenliste.txt').readLines('unicode')
 A=[]
 fileContents.each { String line -&gt;
   if (line != &quot;&quot;){A.add('&quot;' + line.trim() + '&quot;')} else {}
@@ -344,7 +346,7 @@ zutaten_voc = A</value>
 			<att name="ignoreInputHandlers" type="boolean" value="0"/>
 		</node>
 		<node uid="5051f5d5-f412-42d0-bdf6-f0ccf97ef98a" class="com.clt.diamant.graph.nodes.GotoNode">
-			<graphics x="756" y="399" fill="#4c4c80"/>
+			<graphics x="756" y="397" fill="#4c4c80"/>
 			<att name="title" type="string" value="Anleitung"/>
 			<att name="label_uid" type="string" value="9e742940-acbb-4c05-b2b9-3ef0e549b3d0"/>
 		</node>
@@ -769,7 +771,7 @@ vorlesen oder möchtest du nach weiteren Informationen fragen.
 			<att name="label_uid" type="string" value="5cf72c09-a8ce-49b4-afc2-f84ced7592f2"/>
 		</node>
 		<node uid="c804f6f1-9e20-49f8-be53-4dfa045f4525" class="com.clt.diamant.graph.nodes.GotoNode">
-			<graphics x="909" y="397" fill="#4c4c80"/>
+			<graphics x="909" y="396" fill="#4c4c80"/>
 			<att name="title" type="string" value="Zutaten"/>
 			<att name="label_uid" type="string" value="0324b06f-14e1-4af0-a1b7-949cfd3a5c4f"/>
 		</node>
@@ -953,7 +955,7 @@ dyngram = dyngram + &quot;$einkaufszettel = [schreib mir einen] Einkaufszettel |
 			</att>
 		</node>
 		<node uid="d6a638f2-589a-464a-ab79-b03f7b2d749f" class="com.clt.diamant.graph.nodes.GotoNode">
-			<graphics x="838" y="396" fill="#4c4c80"/>
+			<graphics x="838" y="397" fill="#4c4c80"/>
 			<att name="title" type="string" value="Schritt"/>
 			<att name="label_uid" type="string" value="9296bee1-8a4d-43d8-91ec-46d9730d2f81"/>
 		</node>
@@ -1653,8 +1655,8 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="f7db33dc-0881-400f-808b-a7ee59a294f7" tgt="ea05c05d-ee78-443d-93cb-f84cfb14d20a">
 		</edge>
-		<comment x="468" y="99" width="208" height="99" color="#cc0000">Achtung: 
+		<comment x="486" y="154" width="208" height="99" color="#cc0000">Achtung: 
 Hier muss der richtige Pfad eingegeben werden!</comment>
-		<comment x="1226" y="55" width="132" height="87" color="#ffff99">index Variable noch benötigt?</comment>
+		<comment x="14" y="443" width="132" height="87" color="#ffff99">index Variable noch benötigt?</comment>
 	</graph>
 </wizard>

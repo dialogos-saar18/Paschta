@@ -27,6 +27,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<plugin type="resources.de.dialogos.plugin">
+	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -36,6 +38,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -197,10 +201,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<graphics x="1203" y="536" fill="#4c4c80"/>
 			<att name="title" type="string" value="Zutaten"/>
 		</node>
-		<node uid="06c8ca8e-867a-4507-9f60-85aaf09ab289" class="com.clt.diamant.graph.nodes.EndNode">
-			<graphics x="42" y="703" fill="#9999ff"/>
-			<att name="title" type="string" value="Ende"/>
-		</node>
 		<node uid="0ba1cd33-cb86-48ce-ba0c-5a6bcaf39698" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 			<graphics x="469" y="856" fill="#b20000"/>
 			<att name="title" type="string" value="janein"/>
@@ -274,15 +274,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<graphics x="1126" y="397" fill="#4c4c80"/>
 			<att name="title" type="string" value="contain"/>
 			<att name="label_uid" type="string" value="112a4283-2963-4437-9b71-71058dac5a25"/>
-		</node>
-		<node uid="2deb32b5-5ff5-45f7-a5e4-d5d002b16016" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-			<graphics x="6" y="785" fill="#00b200"/>
-			<att name="title" type="string" value="anleitung_zutaten"/>
-			<att name="prompt" type="text">
-				<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Soll ich dir die Zutaten oder die komplette Anleitung vorlesen, dir einen Einkaufszettel schreiben oder &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt; du nach weiteren Informationen fragen?&lt;/prosody&gt;&lt;/maryxml&gt;</value>
-			</att>
-			<att name="prompt_type" type="string" value="maryxml"/>
-			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="308e062e-f331-400a-ba5d-bf38e5d16e0e" class="com.clt.diamant.graph.nodes.GotoNode">
 			<graphics x="1359" y="935" fill="#4c4c80"/>
@@ -963,12 +954,6 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 			<graphics x="873" y="131" fill="#4c4c80"/>
 			<att name="title" type="string" value="1"/>
 		</node>
-		<node uid="be069a04-4c42-42db-a59f-0c4ed4610cef" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-			<graphics x="25" y="634" fill="#b20000"/>
-			<att name="title" type="string" value="Ausgabetest"/>
-			<att name="language" type="string" value="Deutsch"/>
-			<att name="grammarExpression" type="string" value="dyngram"/>
-		</node>
 		<node uid="c1a42ce1-d3f3-45d6-8946-ee67cc5e1e3b" class="com.clt.diamant.graph.nodes.InputNode">
 			<graphics x="1351" y="682" fill="#ff5a5a"/>
 			<att name="title" type="string" value="eigenschaft"/>
@@ -1002,38 +987,6 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 				</att>
 			</att>
 			<att name="simultaneous" type="boolean" value="0"/>
-		</node>
-		<node uid="d0f420d7-b218-4fcf-a38a-59f8df29fcb9" class="com.clt.diamant.graph.nodes.ScriptNode">
-			<graphics x="3" y="533" fill="#99ffff"/>
-			<att name="title" type="string" value="Dynamische Grammatik"/>
-			<att name="comment" type="text">
-				<value>Das, was mal (so ungefähr) passieren soll.</value>
-			</att>
-			<att name="script" type="text">
-				<value>dyngram = &quot;root $input; \n&quot;;
-dyngram = dyngram + &quot;$input = $zutaten {$=[\&quot;zutaten\&quot;, $term_z]} | $eigenschaft | $anleitung; \n&quot;;
-dyngram = dyngram + &quot;$zutaten = Wie viel $term_z brauche ich ; \n&quot;;
-
-#dyngram = &quot;$term_z = milch | zucker; \n&quot;;
-for (int i=1; i&lt;len(ingredients); i++)
-	dyngram = dyngram + &quot;|&quot;+ ingredients[i];
-//
-dyngram = dyngram + &quot;$eigenschaft = Wie lange (braucht | dauert) {$=[\&quot;eigenschaft\&quot;,\&quot;zubereitungszeit\&quot;]} | (Wie schwer ist | Welchen Schwierigkeitsgrad) {$=[\&quot;eigenschaft\&quot;,\&quot;schwierigkeitsgrad\&quot;]}; \n&quot;;
-dyngram = dyngram + &quot;$anleitung = Was ist der $term_a Schritt | $term_a Schritt | (Wiederhole den Schritt | [diesen Schritt] nochmal {$=\&quot;anleitung\&quot;,\&quot;repeat\&quot;}); \n&quot;;
-dyngram = dyngram + &quot;$term_a = nächste {$=\&quot;anleitung\&quot;,\&quot;next\&quot;} | letzte {$=\&quot;anleitung\&quot;,\&quot;previous\&quot;}; \n&quot;;
-
-
-#Dinge escapen!!! 
-# -&gt; \&quot;
-
-
-#grammatik = grammatik + &quot;root $Eingabe; \n&quot;;
-#grammatik = grammatik + &quot;$Eingabe = $Zahlen | Ende \n;&quot;;
-#grammatik = grammatik + &quot;$Zahlen = 0 &quot;;
-#for (int i=1; i&lt;999; i++)
-#  grammatik = grammatik + &quot;|&quot;+i;
-#grammatik = grammatik + &quot;;&quot;;</value>
-			</att>
 		</node>
 		<node uid="d1129d90-47a0-4f40-bb9b-3bab7646b39a" class="com.clt.diamant.graph.nodes.EndNode">
 			<graphics x="337" y="167" fill="#9999ff"/>
@@ -1661,8 +1614,6 @@ aber wie kürzen?</comment>
 		<edge src="18e1152a-90c2-46c9-9c42-f745f16a24e3" tgt="61b5ea98-44c4-4127-a839-258f682b158c">
 			<att name="condition" type="string" value="result"/>
 		</edge>
-		<edge src="2deb32b5-5ff5-45f7-a5e4-d5d002b16016">
-		</edge>
 		<edge src="32c2b329-1796-4187-a686-39f1dc869aa1" tgt="7ed7db50-0bae-44e3-9d33-54109705159c">
 		</edge>
 		<edge src="37233152-ee46-4cd0-a4fa-22d283343513" tgt="a16ebd1d-5845-48b6-bd78-071999eb704c">
@@ -1773,18 +1724,10 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="bb90d713-4708-440b-9277-505a4897b5d9" tgt="d6849f9b-ad6c-47b8-9212-f6f0655d0379">
 		</edge>
-		<edge src="be069a04-4c42-42db-a59f-0c4ed4610cef" tgt="06c8ca8e-867a-4507-9f60-85aaf09ab289">
-			<att name="condition" type="string" value="[a,b]"/>
-		</edge>
-		<edge src="be069a04-4c42-42db-a59f-0c4ed4610cef" tgt="06c8ca8e-867a-4507-9f60-85aaf09ab289">
-			<att name="condition" type="string" value="a"/>
-		</edge>
 		<edge src="c1a42ce1-d3f3-45d6-8946-ee67cc5e1e3b" tgt="0f1647c3-aa36-4508-a245-efb4f2192b40">
 			<att name="condition" type="string" value="result"/>
 		</edge>
 		<edge src="d004246c-c31e-42d6-99b8-da88dd0f0581" tgt="6b334da0-caf7-42e2-aef3-2c8549a0ab08">
-		</edge>
-		<edge src="d0f420d7-b218-4fcf-a38a-59f8df29fcb9">
 		</edge>
 		<edge src="d6849f9b-ad6c-47b8-9212-f6f0655d0379" tgt="66370e54-87d3-472e-9710-3dcfaebe346b">
 		</edge>
@@ -1808,8 +1751,6 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="f7db33dc-0881-400f-808b-a7ee59a294f7" tgt="ea05c05d-ee78-443d-93cb-f84cfb14d20a">
 		</edge>
-		<comment x="501" y="99" width="208" height="99" color="#cc0000">Achtung: 
-Hier muss der richtige Pfad eingegeben werden!</comment>
-		<comment x="1262" y="114" width="127" height="69" color="#ffff99">index Variable noch benötigt?</comment>
+		<comment x="1404" y="99" width="127" height="69" color="#ffff99">index Variable noch benötigt?</comment>
 	</graph>
 </wizard>
