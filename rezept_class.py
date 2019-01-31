@@ -1,8 +1,14 @@
 # -*- coding:cp1252 -*-
 from bs4 import BeautifulSoup as bs
 from einheiten_transf import *
-import urllib2
 import re
+
+
+#HTTP
+from array import zeros
+from java.net import URL
+from java.io import InputStreamReader
+from java.lang import StringBuilder
 
 class Recipe:
     
@@ -22,13 +28,10 @@ class Recipe:
 
             return buffer.toString()
 
-
         url = URL(url)
         urlCon = url.openConnection()
         reader = InputStreamReader(urlCon.getInputStream())
-
         html = read_all(reader)
-
         reader.close()
 
         soup = bs(html,features="html.parser")
@@ -37,6 +40,7 @@ class Recipe:
         self.anleitung = self.init_anleitung(soup)
         self.schritt = 0
         self.zutaten = self.init_zutaten(soup)
+        print(self.zutaten)
         self.zutatenliste = None
         self.portionen = self.init_portionen(soup)#int
         #eigenschaften: dict; available keys:
