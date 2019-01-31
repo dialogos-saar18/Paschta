@@ -512,6 +512,13 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 					<att name="width" type="integer" value="1636"/>
 					<att name="height" type="integer" value="841"/>
 					<groovyFunctions></groovyFunctions>
+					<grammar id="bfce018d-6b37-4180-9d94-00fbfeb52017">
+						<name>hilfe/keine Hilfe</name>
+						<value>root $input;
+ $input = $hilfe {$ = &quot;hilfe&quot;} | $weiter {$ = &quot;weiter&quot;};
+$weiter = [direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen | anfangen) | [ich benötige] keine Hilfe ;
+$hilfe = Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja;</value>
+					</grammar>
 					<node uid="1b254e04-2c3d-4451-a229-33d70d8e2ee0" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="401" y="591" fill="#00b200"/>
 						<att name="title" type="string" value="anleitung"/>
@@ -557,7 +564,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<graphics x="483" y="250" fill="#00b200"/>
 						<att name="title" type="string" value="Erklärung"/>
 						<att name="prompt" type="text">
-							<value>Ich kann dir die Zutaten vorlesen, dir sagen, wie die Mengenangaben sind oder ob eine Zutat benötigt wird. Du kannst dir die ganze Anleitung oder nur einzelne Schritte anhören. Außerdem kannst du dir einen Einkaufszettel schreiben lassen. Du hast zudem die Möglichkeit den Schwierigkeitsgrad, die benötigten Zeiten oder die Kalorien zu erfragen. </value>
+							<value>Du kannst mich nach einzelnen oder allen Zutaten fragen. Ich kann dir auch einen Einkaufszettel schreiben. Außerdem kannst du dir die ganze Anleitung oder nur einzelne Schritte anhören. Ich habe auch noch mehr Informationen.</value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -583,7 +590,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<graphics x="466" y="320" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
-							<value>Möchtest du noch mehr Informationen haben?</value>
+							<value>Sollen ich dir einen der genannten Punkte genauer erklären?</value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -605,6 +612,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<graphics x="292" y="278" fill="#b20000"/>
 						<att name="title" type="string" value="Spracherkenner"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="bfce018d-6b37-4180-9d94-00fbfeb52017"/>
 					</node>
 					<node uid="b1da1224-c4ec-4241-8e45-7b52662f9e63" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="787" y="587" fill="#00b200"/>
@@ -629,7 +637,7 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 						<graphics x="317" y="193" fill="#00b200"/>
 						<att name="title" type="string" value="Hilfe"/>
 						<att name="prompt" type="text">
-							<value>Möchtest du direkt loslegen oder hättest du gerne Hilfe, um zu erfahren, wie die du das Kochbuch verwenden kannst?</value>
+							<value>Möchtest du direkt loslegen oder hättest du gerne Hilfe, um zu erfahren, wie du das Kochbuch verwenden kannst?</value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -674,10 +682,10 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 					<edge src="ac693a05-4248-4fc2-ab39-ae1e5d049151" tgt="a8cf6a07-b66d-4500-8dbf-542507c1e362">
 					</edge>
 					<edge src="acb39183-36af-41c8-b65d-0d209bfd4b5a" tgt="ac693a05-4248-4fc2-ab39-ae1e5d049151">
-						<att name="condition" type="string" value="[direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen | anfangen) | [ich benötige] keine Hilfe"/>
+						<att name="condition" type="string" value="&quot;weiter&quot;"/>
 					</edge>
 					<edge src="acb39183-36af-41c8-b65d-0d209bfd4b5a" tgt="71550357-47e7-4df8-a96c-f37081948d07">
-						<att name="condition" type="string" value="Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja"/>
+						<att name="condition" type="string" value="&quot;hilfe&quot;"/>
 					</edge>
 					<edge src="b1da1224-c4ec-4241-8e45-7b52662f9e63" tgt="41012946-a18d-4aba-9048-24b6f86bde36">
 					</edge>
