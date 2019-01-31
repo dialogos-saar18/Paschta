@@ -30,7 +30,7 @@ class Recipe:
 
         url = URL(url)
         urlCon = url.openConnection()
-        reader = InputStreamReader(urlCon.getInputStream())
+        reader = InputStreamReader(urlCon.getInputStream(), "UTF-8")
         html = read_all(reader)
         reader.close()
 
@@ -40,7 +40,6 @@ class Recipe:
         self.anleitung = self.init_anleitung(soup)
         self.schritt = 0
         self.zutaten = self.init_zutaten(soup)
-        print(self.zutaten)
         self.zutatenliste = None
         self.portionen = self.init_portionen(soup)#int
         #eigenschaften: dict; available keys:
