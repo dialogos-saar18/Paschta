@@ -14,11 +14,12 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 - Warten, bis ```new state: CONNECTING```angezeigt wird.
 
 ### Navigation auf der Kommandozeile
--	öffne cmd.exe
--	mit dir kannst du dir den Inhalt des aktuellen Ordners anzeigen lassen
--	mit cd Ordnername kannst du in einen Unterordner wechseln
--	mit cd Pfad kannst du direkt in den gewünschten Ordner navigieren
--	mit .. kannst du eine Ordnerebene höher wechseln
+-	cmd.exe (einfach in die Suche eingeben)
+- Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der Entertaste bestätigen.
+-	Mit ```dir``` kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.
+-	Mit ```cd```, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.
+-	Mit ```cd```, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.
+-	Mit ```cd..``` kann man eine Ordnerebene höher wechseln.
 
 ### Den Dialog starten
 - Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Momentan funktioniert ```kochbuch_mit_liste.dos``` nur im _Stillen Modus_ von DialogOS.
