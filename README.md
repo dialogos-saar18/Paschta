@@ -13,18 +13,20 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 - ```gradlew runClient``` eingeben und die ```Enter```-Taste drücken.
 - Warten, bis ```new state: CONNECTING```angezeigt wird.
 
+### Navigation auf der Kommandozeile
+-	öffne cmd.exe
+-	mit dir kannst du dir den Inhalt des aktuellen Ordners anzeigen lassen
+-	mit cd Ordnername kannst du in einen Unterordner wechseln
+-	mit cd Pfad kannst du direkt in den gewünschten Ordner navigieren
+-	mit .. kannst du eine Ordnerebene höher wechseln
+
 ### Den Dialog starten
 - Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Momentan funktioniert ```kochbuch_mit_liste.dos``` nur im _Stillen Modus_ von DialogOS.
 (Alternativ kann man zunächst DialogOS starten und dann im Programm den Dialog öffnen.)
 - Im oberen Bereich des Fensters auf ```Ausführen``` klicken, um den Dialog zu starten.
 - Wir empfehlen, ein Blootooth-Headset zu benutzten, um den Dialog optimal zu benutzen.
 
-Navigation auf der Kommandozeile
--	öffne cmd.exe
--	mit dir kannst du dir den Inhalt des aktuellen Ordners anzeigen lassen
--	mit cd Ordnername kannst du in einen Unterordner wechseln
--	mit cd Pfad kannst du direkt in den gewünschten Ordner navigieren
--	mit .. kannst du eine Ordnerebene höher wechseln
+
 Beispiel für den Teil auf der Kommandozeile:
 
 Bildchen von Ausführen mit Mauszeiger drauf
