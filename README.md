@@ -5,7 +5,7 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 ### DialogOs installieren
 - Voraussetzung Java und JRE; Download beispielsweise <a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">hier</a>.
 - <a href= "https://www.dialogos.app/de/index.html">Hier</a> kann man DialogOS herunterladen.
-- Bei „Select Coponents“ alles anwählen.
+- Bei „Select Components“ alles anwählen.
 
 ### Den Client starten
 - Der _Paschta_-Ordner muss sich in einem Unterverzeichnis von C:\ befinden.
