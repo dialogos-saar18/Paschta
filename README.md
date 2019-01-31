@@ -26,11 +26,9 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 - Im oberen Bereich des Fensters auf ```Ausführen``` klicken, um den Dialog zu starten.
 - Wir empfehlen, ein Blootooth-Headset zu benutzten, um den Dialog optimal zu benutzen.
 
-
+<!---
 Beispiel für den Teil auf der Kommandozeile:
-
-Bildchen von Ausführen mit Mauszeiger drauf
-
-Gib Feedback:
--	Probleme, Wünsche, Anregungen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
--	Sei gnadenlos! Je mehr man uns gibt, desto besser wird das Endergebnis.
+Bildchen von Ausführen mit Mauszeiger drauf --->
+### Feedback geben
+-	Probleme, Wünsche, Anregungen, Fragen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
+-	Sei gnadenlos! Je mehr Input wir bekommen, desto mehr Potential hat das Gesamtergebnis.
