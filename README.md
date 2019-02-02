@@ -15,16 +15,21 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 - Warten, bis ```new state: CONNECTING```angezeigt wird.
 
 <details>
-  <summary>### Navigation auf der Kommandozeile</summary>
--	```cmd.exe``` ausführen (einfach in die Suche eingeben)
-- Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der ```Enter```-Taste bestätigen.
--	Mit ```dir``` kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.
--	Mit ```cd```, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.
--	Mit ```cd```, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.
--	Mit ```cd..``` kann man eine Ordnerebene höher wechseln.
+  <summary><h3>Navigation auf der Kommandozeile</h3></summary>
+  <br>
+  <ul>
+    <li>	```cmd.exe``` ausführen (einfach in die Suche eingeben)</li>
+<li>- Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der ```Enter```-Taste bestätigen.</li>
+<li>-	Mit ```dir``` kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.</li>
+<li>-	Mit ```cd```, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.</li>
+<li>-	Mit ```cd```, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.</li>
+<li>-	Mit ```cd..``` kann man eine Ordnerebene höher wechseln.</li>
+  </ul>
 </details>
+
+
 Beispiel:<br>
-![kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
+![Kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
 
 ### Den Dialog starten
 - Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Wir empfehlen ```kochbuch_ohne_liste.dos```, da ```kochbuch_mit_liste.dos``` momentan nur im _Stillen Modus_ von DialogOS funktioniert.)
