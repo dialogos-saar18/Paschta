@@ -275,6 +275,15 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<att name="title" type="string" value="contain"/>
 			<att name="label_uid" type="string" value="112a4283-2963-4437-9b71-71058dac5a25"/>
 		</node>
+		<node uid="2cd9f344-9635-4025-8d43-05c2facdf712" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="1418" y="325" fill="#00b200"/>
+			<att name="title" type="string" value="Wiedersehen"/>
+			<att name="prompt" type="text">
+				<value>Auf Wiedersehen und guten Appetit!</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
 		<node uid="308e062e-f331-400a-ba5d-bf38e5d16e0e" class="com.clt.diamant.graph.nodes.GotoNode">
 			<graphics x="1284" y="875" fill="#4c4c80"/>
 			<att name="title" type="string" value="Goto 1"/>
@@ -294,7 +303,7 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="453b685a-ed46-400e-9878-e63afe3a09dc" class="com.clt.diamant.graph.nodes.OutputNode">
-			<graphics x="1391" y="313" fill="#00cc99"/>
+			<graphics x="1350" y="268" fill="#00cc99"/>
 			<att name="title" type="string" value="Ausgabe"/>
 			<att name="output" type="list">
 				<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -445,7 +454,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="title" type="string" value="Eigenschaft"/>
 		</node>
 		<node uid="5d3c33ec-9717-4a49-a853-e66d14a7c36b" class="com.clt.diamant.graph.nodes.EndNode">
-			<graphics x="1503" y="325" fill="#9999ff"/>
+			<graphics x="1507" y="382" fill="#9999ff"/>
 			<att name="title" type="string" value="Ende"/>
 		</node>
 		<node uid="617e7007-78ea-48e0-9df0-3f126dbd3ce6" class="com.clt.diamant.graph.nodes.SetVariableNode">
@@ -1697,11 +1706,13 @@ aber wie kürzen?</comment>
 		<edge src="18e1152a-90c2-46c9-9c42-f745f16a24e3" tgt="61b5ea98-44c4-4127-a839-258f682b158c">
 			<att name="condition" type="string" value="result"/>
 		</edge>
+		<edge src="2cd9f344-9635-4025-8d43-05c2facdf712" tgt="5d3c33ec-9717-4a49-a853-e66d14a7c36b">
+		</edge>
 		<edge src="32c2b329-1796-4187-a686-39f1dc869aa1" tgt="7ed7db50-0bae-44e3-9d33-54109705159c">
 		</edge>
 		<edge src="37233152-ee46-4cd0-a4fa-22d283343513" tgt="a16ebd1d-5845-48b6-bd78-071999eb704c">
 		</edge>
-		<edge src="453b685a-ed46-400e-9878-e63afe3a09dc" tgt="5d3c33ec-9717-4a49-a853-e66d14a7c36b">
+		<edge src="453b685a-ed46-400e-9878-e63afe3a09dc" tgt="2cd9f344-9635-4025-8d43-05c2facdf712">
 		</edge>
 		<edge src="4693fa4e-646e-404a-93e1-9b83908cb7e8" tgt="6d36c812-3aaa-4725-9256-c0dc5058b400">
 		</edge>
