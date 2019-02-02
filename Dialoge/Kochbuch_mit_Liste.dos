@@ -1306,7 +1306,7 @@ Grounding</comment>
 					</node>
 					<node uid="5e4093a6-7731-421b-a3fa-95d0ef5cb058" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="476" y="321" fill="#00b200"/>
-						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="title" type="string" value="Du brauchst...."/>
 						<att name="prompt" type="text">
 							<value>Du brauchst </value>
 						</att>
@@ -1320,7 +1320,7 @@ Grounding</comment>
 					</node>
 					<node uid="935432aa-1185-4e88-9ed8-0e34dde4e5e3" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="488" y="502" fill="#00b200"/>
-						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="title" type="string" value="...&lt;Zutat&gt;"/>
 						<att name="prompt" type="text">
 							<value>zutat</value>
 						</att>
@@ -1348,11 +1348,11 @@ Grounding</comment>
 					</node>
 					<node uid="dae19945-79fa-4a38-a330-5a49e62bbe03" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="325" y="271" fill="#00b200"/>
-						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="title" type="string" value="Anleitung"/>
 						<att name="prompt" type="text">
 							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Die Zutaten werden dir einzeln vorgelesen. Nach jeder Zutat kannst du entscheiden ob du sie noch einmal hören &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt;, ob die nächste Zutat vorgelesen werden soll, oder ob die Zutatenliste abgebrochen werden soll. Außerdem kannst du dir die vorgelesene Zutat auf einen
- eEinkaufszettel schreiben lassen oder nach der Auflistung aller Zutaten einen kompletten
- eEinkaufszettel erstellen lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
+ Ainkaufszettel schreiben lassen oder naach der Auflistung aller Zutaten einen kompletten
+ Ainkaufszettel erstellen lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
 						</att>
 						<att name="prompt_type" type="string" value="maryxml"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -1432,8 +1432,6 @@ Grounding</comment>
 					</edge>
 					<edge src="f642fd85-fa61-4713-a0ca-c7dfc28700a6" tgt="935432aa-1185-4e88-9ed8-0e34dde4e5e3">
 					</edge>
-					<comment x="689" y="332" width="183" height="81" color="#ffff99">einzelne Zutaten auf Einkaufszettel schreiben können</comment>
-					<comment x="229" y="333" width="144" height="89" color="#ffff99">sehr lang, (aber nur einmal vorgelesen) aber wie kürzen?</comment>
 					<comment x="123" y="694" width="145" height="86" color="#ffff99">lang, vor allem, da bei jeder Zutat
 aber wie kürzen?</comment>
 				</graph>
