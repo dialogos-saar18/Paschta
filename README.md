@@ -26,11 +26,12 @@ Beispiel:<br>
 ![kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
 
 ### Den Dialog starten
-- Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Momentan funktioniert ```kochbuch_mit_liste.dos``` nur im _Stillen Modus_ von DialogOS.
-(Alternativ kann man zunächst DialogOS starten und dann im Programm den Dialog öffnen.)
+- Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Wir empfehlen ```kochbuch_ohne_liste.dos```, da ```kochbuch_mit_liste.dos``` momentan nur im _Stillen Modus_ von DialogOS funktioniert.)
+<br>Alternativ kann man zunächst DialogOS starten und dann im Programm den Dialog öffnen.
 - Im oberen Bereich des Fensters auf ```Ausführen``` klicken, um den Dialog zu starten.<br>
 ![ausfuhren](https://user-images.githubusercontent.com/36304889/52163474-cde03c80-26e2-11e9-8038-39111c5a537e.JPG)
 - Wir empfehlen, ein Blootooth-Headset zu benutzten, um den Dialog optimal zu benutzen.
+- In ```kochbuch_mit_liste.dos```muss im Scriptknoten (hellblau, markiert mit einer roten Notiz) _"Zutatenliste einlesen"_ der Dateipfad für die Datein ```Zutatenliste.txt``` in der ersten Zeile ausgebessert werden. Dabei müssen Slashes (```/```), keine Backslashes (```\```) verwendet werden!
 
 ### Feedback geben
 -	Probleme, Wünsche, Anregungen, Fragen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
