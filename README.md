@@ -32,9 +32,6 @@ Beispiel:<br>
 ![ausfuhren](https://user-images.githubusercontent.com/36304889/52163474-cde03c80-26e2-11e9-8038-39111c5a537e.JPG)
 - Wir empfehlen, ein Blootooth-Headset zu benutzten, um den Dialog optimal zu benutzen.
 
-<!---
-Beispiel für den Teil auf der Kommandozeile:
-Bildchen von Ausführen mit Mauszeiger drauf --->
 ### Feedback geben
 -	Probleme, Wünsche, Anregungen, Fragen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
 -	Sei gnadenlos! Je mehr Input wir bekommen, desto mehr Potential hat das Gesamtergebnis.
