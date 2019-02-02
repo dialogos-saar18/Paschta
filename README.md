@@ -45,3 +45,4 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 ### Feedback geben
 -	Probleme, Wünsche, Anregungen, Fragen! Es soll Spaß machen, mit dem Dialog zu kochen. Es soll einfach und intuitiv sein.
 -	Sei gnadenlos! Je mehr Input wir bekommen, desto mehr Potential hat das Gesamtergebnis.
+<!-- - <a href="https://github.com/dialogos-saar18/Paschta/issues/new">Hier</a> kannst du uns schreiben.-->
