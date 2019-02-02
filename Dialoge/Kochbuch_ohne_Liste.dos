@@ -34,7 +34,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		<g2p language="de_DE">
 			<entry g="drölf" p="d r 9 l f"/>
 			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
-			<entry g="Einkaufslite" p="aI n k aU f s l i: s t @"/>
+			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">

@@ -32,8 +32,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
-			<entry g="Einkaufsliste" p="aI n k aU f s t s l I+ s t @"/>
-			<entry g="Einkaufszettel" p="aI n k aU f s t s t s E+ t @ l"/>
+			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
+			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
@@ -315,7 +315,7 @@ $nein = ( nein [danke] | ne | falsch );</value>
 			<att name="title" type="string" value="Zutatenwörterbuch einlesen"/>
 			<att name="script" type="text">
 				<value>//java.util.ArrayList fileContents = new File('C:/Users/Katharina/Documents/Studium/Dialogsysteme/Kochbuch/Kochbuch-master/klasse+client/Zutatenliste_unicode.txt').readLines('unicode')
-java.util.ArrayList fileContents = new File('C:/Users/TT/Documents/GitHub/Kochbuch/klasse+client/Zutatenliste.txt').readLines('unicode')
+java.util.ArrayList fileContents = new File('C:/Users/TT/Documents/GitHub/Paschta/Zutatenliste.txt').readLines('unicode')
 A=[]
 fileContents.each { String line -&gt;
   if (line != &quot;&quot;){A.add('&quot;' + line.trim() + '&quot;')} else {}
@@ -945,9 +945,9 @@ for (int i = 1; i&lt;length(zutaten_voc); i++)
 dyngram = dyngram + &quot;;&quot;;
 
 dyngram = dyngram + &quot;$zutaten_menge = wie viel $term_z [brauche ich] {$=[\&quot;zutaten\&quot;, $term_z]};&quot;;
-dyngram = dyngram + &quot;$term_z = &quot; + get(ingredients,0);
+dyngram = dyngram + &quot;$term_z = \&quot;&quot; + get(ingredients,0) + &quot;\&quot;&quot;;
 for (int i = 1; i&lt;length(ingredients); i++)
-  dyngram = dyngram + &quot; | &quot; + get(ingredients,i);
+  dyngram = dyngram + &quot; | \&quot;&quot; + get(ingredients,i) + &quot;\&quot;&quot;;
 dyngram = dyngram + &quot;;&quot;;
 dyngram = dyngram + &quot;$zutaten = [sag mir | gib mir] (die Liste | alle Zutaten | die Zutatenliste) | [die] Zutaten | [die] Zutatenliste | was brauche ich | Zutaten vorlesen;&quot;;
 dyngram = dyngram + &quot;$anleitung_ganz = [sag mir | gib mir] ([alle] Schritte | [die] (komplette | ganze) Anleitung) | was muss ich tun | Anleitung | wie geht das Rezept | wie sind die Schritte;&quot;;
