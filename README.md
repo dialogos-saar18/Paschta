@@ -1,3 +1,6 @@
+
+<div style="float:right;"><img src="https://user-images.githubusercontent.com/36304889/52164739-7c41ad00-26f6-11e9-8a6c-f150a3346219.JPG" alt="Logo: Eule mit Chefkochmütze" height="180" align="right"></img></div>
+
 ## Paschta
 
 Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern soll. Dazu wählt man einfach ein Rezept auf ```Chefkoch.de```. Dann kann man alle Informationen aus dem Rezept ganz leicht per Sprachbefehl erlangen, ohne dass man mit schmutzigen Koch-Fingern auf Displays herumwischen muss.
