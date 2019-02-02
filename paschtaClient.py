@@ -22,6 +22,7 @@ def call(category, term, recipe):
     elif category == "zutaten": # gibt alle Zutaten oder einzelne Zutaten zurück
         return(recipe.get_zutat(term)) 
     elif category == "eigenschaft":# auslesen der Eigenschaften wie Arbeitszeit, Schwierigkeitsgrad etc.
+        print(recipe.get_property(term))
         return(recipe.get_property(term))
     else:#works
         print("Fehler in call; Kategorie " + category + " ist ungültig")
@@ -107,7 +108,7 @@ class Main(Client):
         #
         elif value[0].getString().strip('"')=="zutaten":
             self.send(self.recipes[0].get_zutat(value[1].getString().strip('"')))
-        #gibt zurück, für wie viele Personen das Rezept gebraucht wird
+        #gibt zurück, für wie viele Personen das Rezept gedacht ist
         elif value[0].getString().strip('"')=="portionen":
             #if len(value)==1:
             if value[1].getString().strip('"')== "wert":

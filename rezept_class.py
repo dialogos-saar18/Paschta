@@ -186,7 +186,7 @@ class Recipe:
         return einheiten
 
 
-    # no return value, only changes incredients
+    # return value: String, ob die Umrechnung erfolgreich war
     # angabe: "Personen" oder eine Zutat
     # anzahl: liste: [menge, einheit] zum umrechnen oder die Anzahl der Portionen
     # to do: argumente anpassen an client, evtl menge in int umrechnen
@@ -207,14 +207,16 @@ class Recipe:
             einheit_alt = self.zutaten[angabe][u'einheit']
             einheit_neu = anzahl[1]
             menge_alteeinheit = self.zutaten[angabe][u'menge']
-            #print(einheit_alt, einheit_neu, menge_alteeinheit)
             menge_neueeinheit = e_umrechnen(einheit_alt, einheit_neu, menge_alteeinheit)
-            #print(menge_neueeinheit)
+            if type(menge_neueeinheit) == str:
+                s = u'Die Umrechnung ist fehlgeschlagen. Einheit ' + einheit_alt + u' lässt sich nicht in ' + einheit_neu + u' umrechnen'
+                return s
             factor = zahl / menge_neueeinheit
         for z in self.zutaten:
             d = self.zutaten[z]
             d[u'menge'] = round(d[u'menge'] * factor, 2)
             self.eigenschaften[u'Portionen'] = self.get_property(u'Portionen') * factor
+        return "Die Mengenangaben wurden umgerechnet"
 
     # gibt zurück ob die Zutat gebraucht wird oder nicht
     # Problem: mehrere Sorten der gleichen Zutat
@@ -293,6 +295,11 @@ class Recipe:
                 else:
                     einheit = u''
                 einheit = e_ausschreiben(einheit)
+                #einheit = einheit.replace(u'(', u'')
+                #einheit = einheit.replace(u')', u'')
+                einheit = einheit.replace(u'/', u'')
+                #einheit = einheit.replace(u',', u'')
+                einheit = einheit.replace(u'.', u'')
                 try:
                     d[u'menge'] = int(zahl)
                     d[u'einheit'] = einheit
@@ -309,7 +316,7 @@ class Recipe:
         p = p[u'value']
         return int(p)
 
-    #returns dict: {u'schwierigkeitsgrad': u'simpel', ...}
+#returns dict: {u'schwierigkeitsgrad': u'simpel', ...}
     def init_properties(self, beautifuls):
         preparation = {}
         prep = beautifuls.find(id=u'preparation-info')
@@ -328,7 +335,7 @@ class Recipe:
                     else:
                         val = val + n
                 val = val.strip()
-                if key == u'Arbeitszeit:' or key == u'Ruhezeit:' or key == u'Koch-/Backzeit:':
+                if key == u'Arbeitszeit' or key == u'Ruhezeit' or key == u'Koch-/Backzeit':
                     d = {}
                     val = val[4:]
                     lis = val.split(" ")
@@ -340,24 +347,26 @@ class Recipe:
                         v = lis[1]
                     d[u'dauer'] = k
                     d[u'einheit'] = v
-                    val = d
+                    val = u'ca. ' + str(k) + u' ' + v
+
                                     
                 preparation[key] = val
+
             i = i + 1
         ges = 0
         einheiten = []
         try:
-            aze = preparation[u'Arbeitszeit:'][u'einheit']
+            aze = preparation[u'Arbeitszeit'][u'einheit']
             einheiten.append(aze)
         except:
             pass
         try:
-            rze = preparation[u'Ruhezeit:'][u'einheit']
+            rze = preparation[u'Ruhezeit'][u'einheit']
             einheiten.append(rze)
         except:
             pass
         try:
-            kze = preparation[u'Koch-/Backzeit:'][u'einheit']
+            kze = preparation[u'Koch-/Backzeit'][u'einheit']
             einheiten.append(kze)
         except:
             pass
@@ -365,20 +374,23 @@ class Recipe:
         for e in einheiten:
             if e != u'Min.':
                 umr = True
-        if u'Arbeitszeit:' in preparation:
-            zeit = preparation[u'Arbeitszeit:'][u'dauer']
+        if u'Arbeitszeit' in preparation:
+            zeit = preparation[u'Arbeitszeit'][4:].split(" ")[0]
+            zeit = int(zeit)
             if umr:
                 if aze == u'Std.':
                     zeit = zeit * 60
             ges = ges + zeit
-        if u'Ruhezeit:' in preparation:
-            zeit = preparation[u'Ruhezeit:'][u'dauer']
+        if u'Ruhezeit' in preparation:
+            zeit = preparation[u'Ruhezeit'][4:].split(" ")[0]
+            zeit = int(zeit)
             if umr:
                 if rze == u'Std.':
                     zeit = zeit * 60
             ges = ges + zeit
-        if u'Koch-/Backzeit:' in preparation:
-            zeit = preparation[u'Koch-/Backzeit:'][u'dauer']
+        if u'Koch-/Backzeit' in preparation:
+            zeit = preparation[u'Koch-/Backzeit'][4:].split(" ")[0]
+            zeit = int(zeit)
             if umr:
                 if kze == u'Std.':
                     zeit = zeit * 60
@@ -390,7 +402,7 @@ class Recipe:
             e = u'Std.'
         di[u'dauer'] = ges
         di[u'einheit'] = e
-        preparation[u'Gesamtzeit'] = di
+        preparation[u'Gesamtzeit'] = u'ca. ' + str(ges) + u' ' + e
         ti = self.init_titel(beautifuls)
         pi = self.init_portionen(beautifuls)
         preparation[u'Titel'] = ti

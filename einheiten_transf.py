@@ -39,7 +39,7 @@ def e_umrechnen(einheit_alt, einheit_neu, menge):
     elif einheit_alt == u'Deziliter' and einheit_neu == u'Milliliter':
         m = menge * 100.0
     else:
-        print("Nicht umrechenbar")
+        m = ""
     return m    
 
 def e_ausschreiben(einheit):
