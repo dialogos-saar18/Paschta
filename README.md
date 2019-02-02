@@ -14,14 +14,15 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 - ```gradlew runClient``` eingeben und die ```Enter```-Taste drücken.
 - Warten, bis ```new state: CONNECTING```angezeigt wird.
 
-### Navigation auf der Kommandozeile
+<details>
+  <summary>### Navigation auf der Kommandozeile</summary>
 -	```cmd.exe``` ausführen (einfach in die Suche eingeben)
 - Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der ```Enter```-Taste bestätigen.
 -	Mit ```dir``` kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.
 -	Mit ```cd```, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.
 -	Mit ```cd```, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.
 -	Mit ```cd..``` kann man eine Ordnerebene höher wechseln.
-
+</details>
 Beispiel:<br>
 ![kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
 
