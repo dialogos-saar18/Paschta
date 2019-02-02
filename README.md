@@ -10,13 +10,13 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
 
 ### Den Client starten
 - Der _Paschta_-Ordner muss sich in einem Unterverzeichnis von C:\ befinden.
-- In der Kommandozeile in den Ordner navigieren (dafür auf Windows cmd.exe verwenden oder in der PowerShell zuerst ```cmd``` eingeben).
+- In der Kommandozeile in den Ordner navigieren (dafür auf Windows _cmd.exe_ verwenden oder in der _PowerShell_ zuerst ```cmd``` eingeben).
 - ```gradlew runClient``` eingeben und die ```Enter```-Taste drücken.
 - Warten, bis ```new state: CONNECTING```angezeigt wird.
 
 ### Navigation auf der Kommandozeile
--	cmd.exe (einfach in die Suche eingeben)
-- Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der Entertaste bestätigen.
+-	```cmd.exe``` ausführen (einfach in die Suche eingeben)
+- Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der ```Enter```-Taste bestätigen.
 -	Mit ```dir``` kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.
 -	Mit ```cd```, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.
 -	Mit ```cd```, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.
