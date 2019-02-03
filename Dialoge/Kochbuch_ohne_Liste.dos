@@ -27,6 +27,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<plugin type="resources.de.dialogos.plugin">
+	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -35,6 +37,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -75,7 +79,7 @@ $nein = ( nein [danke] | ne | falsch ) | definitiv nicht | [das] will ich nicht 
 			<name>ja/nein/umrechnen</name>
 			<value>root $input;
 $input = $ja {$ = &quot;ja&quot;}| $nein {$ = &quot;nein&quot;};
-$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | ja ich möchte sie umrechnen | ändern | umrechnen | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;;
+$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | ja ich möchte sie umrechnen | ändern | umrechnen | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;
 $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengenangaben] nicht umrechnen | nein nicht umrechnen | ups | definitiv nicht | [das] will ich nicht | lieber nicht | besser nicht | bloß nicht | eigentlich nicht ;</value>
 		</grammar>
 		<variable uid="616a7294-ca38-4923-a7fc-b71a822d01de">
@@ -327,7 +331,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="title" type="string" value="Portionen"/>
 			<att name="output" type="list">
 				<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-					<att name="Text" type="string" value="[&quot;portionen&quot;,&quot;wert&quot;]"/>
+					<att name="Text" type="string" value="[&quot;portionen&quot;]"/>
 				</att>
 			</att>
 			<att name="reset" type="boolean" value="0"/>
@@ -818,7 +822,7 @@ dyngram = dyngram + &quot;$zutaten_menge = wie viel $term_z [brauche ich] {$=[\&
 //$term_z
 dyngram = dyngram + &quot;$term_z = &quot; + get(ingredients,0);
 for (int i = 1; i&lt;length(ingredients); i++)
-  dyngram = dyngram + &quot; | &quot; + get(ingredients,i);
+  dyngram = dyngram + &quot; | \&quot;&quot; + get(ingredients,i) + &quot;\&quot;&quot;;
 dyngram = dyngram + &quot;;&quot;;
 
 //$zutaten

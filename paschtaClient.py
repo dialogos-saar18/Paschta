@@ -1,11 +1,14 @@
 # -*- coding: cp1252 -*-
 #jython -Dpython.path=ClientInterface-2.0.4.jar cookclient_url.py
+
 from com.clt.dialog.client import Client
 from com.clt.script.exp import Value
-#from testmodule import *
 import java.lang.Object
+
+# eigene Klasse
 from rezept_class import *
 
+# Java Swing für GUI
 from java.awt import BorderLayout, Color
 from javax.swing import JPanel, JFrame, JTextArea, JButton, BoxLayout, Box, JTextField
 from javax.swing import JLabel
@@ -15,12 +18,10 @@ from java.awt import Dimension
 from java.lang import Class
 
 
-# TODO: Leerzeichen
 
 class Main(Client):
     def __init__(self):
         self.recipe = None
-        pass    
 
     def stateChanged(self, cs):
         print "new state: " + str(cs)
@@ -40,7 +41,8 @@ class Main(Client):
     # "anleitung" ("first" | "next" | "previous" | "repeat" | "last" | "all")
     # "titel"
     # "einheiten"
-    # "einkaufszettel" ("all" | _ )
+    # "einkaufszettel"
+    # "Zettel" Text
     # "portionen" "wert"
     # "Personen" Anzahl
     # "ende"
@@ -52,8 +54,6 @@ class Main(Client):
         # Quelltext für Rezept abfragen
         if category == "URL":
             self.gui()
-            print("created recipe for " + self.recipe.get_title())
-            # TODO: print title
 
         # erstellt Liste mit allen Zutaten (ohne Mengenangaben)
         elif category == "ingredients":
@@ -82,27 +82,25 @@ class Main(Client):
             
         # gibt zurück, für wie viele Personen das Rezept kalkuliert ist
         elif category == "portionen":
-            if value[1].getString().strip('"') == "wert":
-                self.send(str(self.recipe.get_portions()))
-            # TODO: else
+            self.send(str(self.recipe.get_portions()))
 
         # fürs Umrechnen nach Personen
         elif category  == "Personen":
-            self.send(self.recipe.umrechnen(value[1].getString().strip('"'),u'Personen'))
+            self.send(self.recipe.umrechnen(value[1].getString().strip('"'), u'Personen'))
         # fürs Umrechnen nach Zutaten
         elif category == "Zutaten":
             z = value[1].getString().strip('"')
             m = value[2].getString().strip('"')
             e = str(value[3]).strip('"') # hier str() und nicht getString(), weil value[3] ein IntValue ist
-            self.send(self.recipe.umrechnen([m,e],z))
+            self.send(self.recipe.umrechnen([m,e], z))
 
         # reset Schrittindex (wenn <TODO>)
         elif category == "ende":
-            self.recipe.schritt = 0
+            self.recipe.set_schritt(0)
 
         # gibt die komplette Anleitung oder einen Schritt zurück
         elif category == "anleitung":
-            # Funktionsargument {"first","next","previous","repeat","last","all"}
+            # Funktionsargument aus {"first","next","previous","repeat","last","all"}
             self.send(self.recipe.get_schritt(value[1].getString().strip('"')))
         
         # gibt alle Zutaten oder einzelne Zutaten zurück (mit Mengenangaben, falls vorhanden)
@@ -114,7 +112,7 @@ class Main(Client):
             self.send(self.recipe.get_property(value[1].getString().strip('"')))
         
         else:
-            print("Fehler in call; Kategorie " + category + " ist ungültig")
+            print("Fehler in call; Kategorie '" + category + "' ist ungültig")
             self.send("Fehler")
             # TODO: raise Error!
 
@@ -137,6 +135,7 @@ class Main(Client):
             url = field.getText()
             self.recipe = Recipe(url)
             frame.dispose()
+            print("created recipe for " + self.recipe.get_title())
             # der Dialog wartet, bis "continue" gesendet wird
             self.send("continue")
 

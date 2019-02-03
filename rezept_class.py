@@ -1,8 +1,11 @@
 # -*- coding:cp1252 -*-
-from bs4 import BeautifulSoup as bs
-from einheiten_transf import *
-import re
 
+# HTML Parser
+from bs4 import BeautifulSoup as bs
+# eigene Klasse
+from einheiten_transf import *
+
+import re
 
 #HTTP
 from array import zeros
@@ -10,10 +13,13 @@ from java.net import URL
 from java.io import InputStreamReader
 from java.lang import StringBuilder
 
+
+
 class Recipe:
     
     def __init__(self, url):
-        # Liest den kompletten Inhalt des gegebenen Readers
+        
+        # Hilfsfunktion: Liest den kompletten Inhalt des gegebenen Readers
         # und speichert ihn in einem String ab.
         def read_all(reader):
             arrsize = 8*1024
@@ -28,29 +34,31 @@ class Recipe:
 
             return buffer.toString()
 
+        # Quelltext holen
         url = URL(url)
         urlCon = url.openConnection()
         reader = InputStreamReader(urlCon.getInputStream(), "UTF-8")
         html = read_all(reader)
         reader.close()
 
+        # Quelltext parsen
         soup = bs(html,features="html.parser")
-        
-        self.title = self.init_titel(soup)
-        self.anleitung = self.init_anleitung(soup)
-        self.schritt = 0
-        self.zutaten = self.init_zutaten(soup)
-        self.zutatenliste = None
-        self.portionen = self.init_portionen(soup)#int
-        #eigenschaften: dict; available keys:
-        #zubereitungszeit ebenfalls evtl. in Größe und Einheit unterteilen
-            #-> an den jeweiligen Nutzer anpassen
-        self.eigenschaften = self.init_properties(soup)
 
-    def get_schritt(self, argument): #returns string
+        # Objektattribute initialisieren
+        self.title = self.init_titel(soup) # String
+        self.anleitung = self.init_anleitung(soup) # String list
+        self.schritt = 0
+        self.zutaten = self.init_zutaten(soup) # dict dict
+        #self.zutatenliste = None
+        self.portionen = self.init_portionen(soup)# int
+        self.eigenschaften = self.init_properties(soup) # dict
+
+    #returns string
+    def get_schritt(self, argument): 
         
         if argument == u'first':
             return u'Lass uns loslegen: ' + self.anleitung[0]
+        
         elif argument == u'next':
             try:
                 self.schritt += 1
@@ -60,8 +68,10 @@ class Recipe:
                 return antwort
             except:
                 return u'Du bist fertig'
+            
         elif argument == u'repeat':
             return u'Ich wiederhole: ' + self.anleitung[self.schritt]
+        
         elif argument == u'previous':
             try:
                 self.schritt -= 1
@@ -69,21 +79,26 @@ class Recipe:
             except:
                 self.schritt = 0
                 return u'Dein erster Schritt lautet: ' + self.anleitung[0]
+            
         elif argument == u'last':
             self.schritt = len(self.anleitung - 1)
             return u'Der letzte Schritt lautet: ' + self.anleitung[self.schritt] + u' Das war der letzte Schritt'
+        
         elif argument == u'all':
             r = u''
             for i in range(len(self.anleitung)):
                 r += self.anleitung[i] + u'  '
             return r
+        
         else:
             print (u'Unerwartetes Argument '+str(argument)+u' in get_schritt')
             return ("Fehler")
-            ### TODO: raise Error
+            ### TODO: raise Error ?
 
-
-    #option: entweder "all" oder die der Index der Zutat, die aufgeschrieben werden soll
+    def set_schritt(self, value):
+        self.schritt = value
+        
+    #option: entweder "all" oder Text, der auf die Einkaufsliste soll
     def einkaufszettel(self,option):
         datei = "Einkaufszettel_" + self.title + ".txt"
         if option == "all":
@@ -102,16 +117,16 @@ class Recipe:
                     f.write("\n")
         else:
             with open(datei, "a") as f:
-                #o = int(option)
                 zutat = option
                 f.write(zutat.encode('cp1252'))
                 f.write("\n")
 
-
-    def get_zutat(self,bezeichnung): #returns string
+    # wie viel man von was braucht
+    # Rückgabe für einzelne Zutaten: String
+    # Rückgabe für Argument "all": Liste
+    def get_zutat(self,bezeichnung): 
         if bezeichnung == "all":
             liste = []
-            s = u'Du brauchst '
             for z in self.zutaten:
                 m = self.zutaten[z][u'menge']
                 if m == 0:
@@ -123,48 +138,49 @@ class Recipe:
                 s = u' ' + m + u' ' + e + u' ' + z + u' '
                 liste.append(s)
             return liste
-            #return s
-            
-        try:
-            me = self.zutaten[bezeichnung][u'menge']
-            if me == 0:
-                me = u''
-            else:
-                me = str(me)
-            ei = self.zutaten[bezeichnung][u'einheit']
-            return me + u' ' + ei + u' ' + bezeichnung
-        except:
-            l = []
-            for i in self.zutaten:
-                if re.search(bezeichnung, i):
-                    me = self.zutaten[i][u'menge']
-                    ei = self.zutaten[i][u'einheit']
-                    l.append(me)
-                    l.append(ei)
-                    l.append(i)
-            try:
-                if l[0] == 0:
-                    l0 = u''
-                else:
-                    l0 = str(l[0])
-                s = l0 + u' ' + l[1] + u' ' + l[2]
-                i = 3
-                while i < len(l):
-                    print(i)
-                    if i%3 == 0:
-                        s = s + u' und'
-                    if l[i] == 0:
-                        li = u''
-                    else:
-                        li = str(l[i])
-                    s = s + u' ' + li
-                    i = i + 1
-                return s
-                    
-            except:
-                return u'Zutat wird nicht benötigt'
 
-    def get_property(self,key): #returns string
+        else:
+            try:
+                me = self.zutaten[bezeichnung][u'menge']
+                if me == 0:
+                    me = u''
+                else:
+                    me = str(me)
+                ei = self.zutaten[bezeichnung][u'einheit']
+                return me + u' ' + ei + u' ' + bezeichnung
+            except:
+                l = []
+                for i in self.zutaten:
+                    if re.search(bezeichnung, i):
+                        me = self.zutaten[i][u'menge']
+                        ei = self.zutaten[i][u'einheit']
+                        l.append(me)
+                        l.append(ei)
+                        l.append(i)
+                try:
+                    if l[0] == 0:
+                        l0 = u''
+                    else:
+                        l0 = str(l[0])
+                    s = l0 + u' ' + l[1] + u' ' + l[2]
+                    i = 3
+                    while i < len(l):
+                        print(i)
+                        if i%3 == 0:
+                            s = s + u' und'
+                        if l[i] == 0:
+                            li = u''
+                        else:
+                            li = str(l[i])
+                        s = s + u' ' + li
+                        i = i + 1
+                    return s
+                        
+                except:
+                    return u'Zutat wird nicht benötigt'
+
+    #returns string
+    def get_property(self,key):
         #key error / "all"=> gesamtzeit / übersicht über die einzelnen Zeiten
         try:        
             return self.eigenschaften[key]
@@ -174,12 +190,15 @@ class Recipe:
     def get_title(self):
         return self.title
 
+    # Angabe, für wie viele Portionen das Rezept kalkuliert ist
     def get_portions(self):
         return self.portionen
 
+    # Liste aller Zutaten (ohne Mengenangaben)
     def ingredients(self):
         return self.zutaten.keys()
 
+    # alle Einheitenbezeichnungen, die im Rezept verwendet werden
     def einheiten(self):
         einheiten = set()
         for z in self.zutaten:
@@ -193,7 +212,7 @@ class Recipe:
     # return value: String, ob die Umrechnung erfolgreich war
     # angabe: "Personen" oder eine Zutat
     # anzahl: liste: [menge, einheit] zum umrechnen oder die Anzahl der Portionen
-    # to do: argumente anpassen an client, evtl menge in int umrechnen
+    # TODO: argumente anpassen an client, evtl menge in int umrechnen
     def umrechnen(self, anzahl, angabe):
         if angabe == u'Personen':
             anzahl = float(anzahl)
@@ -320,7 +339,7 @@ class Recipe:
         p = p[u'value']
         return int(p)
 
-#returns dict: {u'schwierigkeitsgrad': u'simpel', ...}
+    #returns dict: {u'schwierigkeitsgrad': u'simpel', ...}
     def init_properties(self, beautifuls):
         preparation = {}
         prep = beautifuls.find(id=u'preparation-info')
@@ -417,7 +436,6 @@ class Recipe:
 
 
                                              
-#rezept = Recipe("https://www.chefkoch.de/rezepte/447611137007614/Paprika-Carbonara.html")
     
 
 '''
