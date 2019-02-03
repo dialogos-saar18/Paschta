@@ -27,8 +27,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
-	<plugin type="resources.de.dialogos.plugin">
-	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -37,8 +35,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
-	</plugin>
-	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -67,8 +63,8 @@ $einkaufszettel = [schreib mir einen] Einkaufszettel | [einen] Einkaufszettel sc
 //root &lt;janein&gt;;
 root $input;
 $input = $ja {$ = &quot;ja&quot;}| $nein {$ = &quot;nein&quot;};
-$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt;
-$nein = ( nein [danke] | ne | falsch );</value>
+$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;
+$nein = ( nein [danke] | ne | falsch ) | definitiv nicht | [das] will ich nicht | lieber nicht | besser nicht | bloß nicht | eigentlich nicht | ups;</value>
 		</grammar>
 		<grammar id="0ee8f697-6c5d-4161-9ad0-68af91372797">
 			<name>Untitled</name>
@@ -79,8 +75,8 @@ $nein = ( nein [danke] | ne | falsch );</value>
 			<name>ja/nein/umrechnen</name>
 			<value>root $input;
 $input = $ja {$ = &quot;ja&quot;}| $nein {$ = &quot;nein&quot;};
-$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | ja ich möchte sie umrechnen | ändern | umrechnen;
-$nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrechnen;</value>
+$ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | ja ich möchte sie umrechnen | ändern | umrechnen | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;;
+$nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengenangaben] nicht umrechnen | nein nicht umrechnen | ups | definitiv nicht | [das] will ich nicht | lieber nicht | besser nicht | bloß nicht | eigentlich nicht ;</value>
 		</grammar>
 		<variable uid="616a7294-ca38-4923-a7fc-b71a822d01de">
 			<name>result</name>
@@ -532,8 +528,8 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 						<name>hilfe/keine Hilfe</name>
 						<value>root $input;
  $input = $hilfe {$ = &quot;hilfe&quot;} | $weiter {$ = &quot;weiter&quot;};
-$weiter = [direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen | anfangen) | [ich benötige] keine Hilfe ;
-$hilfe = Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja;</value>
+$weiter = [direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen | anfangen) | [ich benötige | ich brauche] keine Hilfe | einfach weiter | weiter | [Hilfe] überspringen | Ja ich möchte direkt (loslegen | anfangen);
+$hilfe = [ich benötige | ich brauche] Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja | gerne Hilfe | ich würde gerne Hilfe bekommen | erklär mir wie ich das Kochbuch verwenden kann;</value>
 					</grammar>
 					<node uid="1b254e04-2c3d-4451-a229-33d70d8e2ee0" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="422" y="226" fill="#00b200"/>
@@ -549,7 +545,7 @@ $hilfe = Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja;</value>
 						<att name="title" type="string" value="mehr Infos"/>
 					</node>
 					<node uid="41012946-a18d-4aba-9048-24b6f86bde36" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="531" y="296" fill="#00b200"/>
+						<graphics x="531" y="301" fill="#00b200"/>
 						<att name="title" type="string" value="Noch etwas?"/>
 						<att name="prompt" type="text">
 							<value>Möchtest du noch etwas wissen?</value>
@@ -596,12 +592,12 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 					</node>
 					<node uid="79356a15-8df6-4758-8261-9e8321bed338" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="318" y="404" fill="#4c4c80"/>
+						<graphics x="324" y="396" fill="#4c4c80"/>
 						<att name="title" type="string" value="Goto mehr Infos"/>
 						<att name="label_uid" type="string" value="1f719de7-3050-4c2e-a5d7-781d2556099e"/>
 					</node>
 					<node uid="7afead99-194d-48c5-94b4-8428270fa904" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="604" y="433" fill="#4c4c80"/>
+						<graphics x="620" y="444" fill="#4c4c80"/>
 						<att name="title" type="string" value="Goto mehr Infos"/>
 						<att name="label_uid" type="string" value="1f719de7-3050-4c2e-a5d7-781d2556099e"/>
 					</node>
@@ -611,7 +607,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<att name="expression" type="string" value="help &lt; 1"/>
 					</node>
 					<node uid="9060c56d-7f10-40d8-b8b5-e4df7d8c3f79" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="549" y="357" fill="#b20000"/>
+						<graphics x="537" y="366" fill="#b20000"/>
 						<att name="title" type="string" value="ja / nein"/>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
@@ -626,11 +622,11 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="a8cf6a07-b66d-4500-8dbf-542507c1e362" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="264" y="582" fill="#9999ff"/>
+						<graphics x="214" y="593" fill="#9999ff"/>
 						<att name="title" type="string" value="zum Hauptdialog"/>
 					</node>
 					<node uid="ac693a05-4248-4fc2-ab39-ae1e5d049151" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="239" y="504" fill="#00b200"/>
+						<graphics x="240" y="504" fill="#00b200"/>
 						<att name="title" type="string" value="Was tun?"/>
 						<att name="prompt" type="text">
 							<value>Was kann ich für dich tun?</value>
@@ -782,7 +778,7 @@ dyngram = dyngram + &quot;$input = $ende {$=\&quot;ende\&quot;} | $wiederholen {
 
 
 //$ende
-dyngram = dyngram + &quot;$ende = ende | fertig | abbrechen | [Programm] schließen | schluss | beenden | aufhören | [das] reicht | nichts [mehr] | hör auf | mach schluss | sei (ruhig | leise | still) | halt | stop;&quot;;
+dyngram = dyngram + &quot;$ende = ende | fertig | abbrechen | [Programm] schließen | schluss | beenden | aufhören | [das] reicht | nichts [mehr] | hör auf | mach schluss | sei (ruhig | leise | still) | halt | stop | [gut] ich bin fertig | das wars;&quot;;
 
 //$wiederholen
 dyngram = dyngram + &quot;$wiederholen = wiederholen | nochmal | wiederhol das bitte | (wie | was) [war das] [bitte];&quot;;
@@ -796,12 +792,12 @@ dyngram = dyngram + &quot;$arbeitszeit = wie viel Arbeitszeit (muss | kann | sol
 //$kochzeit
 dyngram = dyngram + &quot;$kochzeit = wie viel (Kochzeit | Backzeit) (muss | kann | soll) ich rechnen | was ist die (Kochzeit | Backzeit) | wie lange (kocht | backt) es | wie lange muss es (kochen | backen) | [die] Kochzeit | [die] Backzeit;&quot;;
 //$gesamtzeit
-dyngram = dyngram + &quot;$gesamtzeit = wie lange brauche ich | wie lange dauert das | [wie ist die] Gesamtzeit | wie viel Zeit muss ich (rechnen | einplanen);&quot;;
+dyngram = dyngram + &quot;$gesamtzeit = wie lange brauche ich | wie lange (dauert|braucht) das [Rezept] | [wie ist die] Gesamtzeit | wie viel Zeit muss ich (rechnen | einplanen);&quot;;
 
 //$schwierig
 dyngram = dyngram + &quot;$schwierig = wie schwer ist (es | das Rezept) | welchen Schwierigkeitsgrad hat (es | das Rezept)| Schwierigkeitsgrad | (wie | was) ist der Schwierigkeitsgrad | Schwierigkeitsgrad | ist es schwierig ;&quot;;
 //$kalorien
-dyngram = dyngram + &quot;$kalorien = wie viele Kalorien hat das (Gericht | Essen);&quot;;
+dyngram = dyngram + &quot;$kalorien = wie viele Kalorien hat das (Gericht | Essen) | wie hoch ist der Nährwert [des Gerichts | des Essen] | wie viel Nährwert hat das Rezept;&quot;;
 
 
 //$anleitung_ganz
@@ -826,11 +822,11 @@ for (int i = 1; i&lt;length(ingredients); i++)
 dyngram = dyngram + &quot;;&quot;;
 
 //$zutaten
-dyngram = dyngram + &quot;$zutaten = [sag mir | gib mir] (die Liste | alle Zutaten | die Zutatenliste) | [die] Zutaten | [die] Zutatenliste | was brauche ich | Zutaten vorlesen | welche Zutaten brauche ich;&quot;;
+dyngram = dyngram + &quot;$zutaten = [sag mir | gib mir] (die Liste | alle Zutaten | die Zutatenliste | die Zutaten) | [die] Zutaten | [die] Zutatenliste | was brauche ich | Zutaten vorlesen | welche Zutaten brauche ich | [du kannst mir] [den] Einkaufszettel vorlesen;&quot;;
 
 
 //$einkaufszettel
-dyngram = dyngram + &quot;$einkaufszettel = [schreib mir einen] Einkaufszettel | [einen] Einkaufszettel schreiben | [eine] Einkaufsliste schreiben | [schreib mir eine] Einkaufsliste ;&quot;;
+dyngram = dyngram + &quot;$einkaufszettel = [schreib mir einen] Einkaufszettel | [einen] Einkaufszettel schreiben | [eine] Einkaufsliste schreiben | [schreib mir eine] Einkaufsliste | Liste | Zettel ;&quot;;
 
 
 //$help
