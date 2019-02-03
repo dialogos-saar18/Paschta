@@ -505,7 +505,7 @@ zutaten_voc = A</value>
 					<att name="height" type="integer" value="841"/>
 					<groovyFunctions></groovyFunctions>
 					<node uid="2258e102-4f91-4493-8ab7-2ba2131aa91d" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="191" y="433" fill="#ff5a5a"/>
+						<graphics x="191" y="431" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Eingabe"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -690,7 +690,7 @@ zutaten_voc = A</value>
 			<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 		</node>
 		<node uid="a7cd5c91-c640-4b1f-a00a-19b817eaad93" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-			<graphics x="166" y="212" fill="#00b200"/>
+			<graphics x="165" y="211" fill="#00b200"/>
 			<att name="title" type="string" value="Sprachsynthese"/>
 			<att name="prompt" type="text">
 				<value>&quot;Ich habe das Rezept für &quot; + result +&quot; geladen.&quot; </value>
@@ -743,7 +743,7 @@ vorlesen oder möchtest du nach weiteren Informationen fragen.
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="bb90d713-4708-440b-9277-505a4897b5d9" class="com.clt.diamant.graph.nodes.LabelNode">
-			<graphics x="721" y="143" fill="#4c4c80"/>
+			<graphics x="862" y="142" fill="#4c4c80"/>
 			<att name="title" type="string" value="1"/>
 		</node>
 		<node uid="be069a04-4c42-42db-a59f-0c4ed4610cef" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
@@ -914,7 +914,7 @@ dyngram = dyngram + &quot;$term_a = nächste {$=\&quot;anleitung\&quot;,\&quot;n
 			<att name="title" type="string" value="Ende"/>
 		</node>
 		<node uid="d6849f9b-ad6c-47b8-9212-f6f0655d0379" class="com.clt.diamant.graph.nodes.ScriptNode">
-			<graphics x="833" y="210" fill="#99ffff"/>
+			<graphics x="702" y="220" fill="#99ffff"/>
 			<att name="title" type="string" value="Grammatik"/>
 			<att name="comment" type="text">
 				<value>Die Grammatik ist sehr hässlich, da einzeilig
@@ -1030,7 +1030,7 @@ gram = gram + &quot;;&quot;;</value>
 						</att>
 					</node>
 					<node uid="1493b044-d03c-4947-b8ec-c0ecd752a126" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="326" y="195" fill="#00b200"/>
+						<graphics x="327" y="195" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Für wie viele Personen oder für welche Menge einer Zutat &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt; du kochen?&lt;/prosody&gt;&lt;/maryxml&gt;</value>
@@ -1082,7 +1082,7 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="wait" type="boolean" value="0"/>
 					</node>
 					<node uid="92af95d0-f04f-45be-ae92-c82dff4716e7" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="335" y="685" fill="#00b200"/>
+						<graphics x="240" y="671" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>&quot;Die Zutaten wurden umgerechnet&quot;</value>
@@ -1613,7 +1613,7 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="b99faceb-da68-4321-881f-b8b68530be7c" tgt="5c6c5b8c-3afd-4ea7-ba4d-4a4286959b5a">
 		</edge>
-		<edge src="bb90d713-4708-440b-9277-505a4897b5d9" tgt="d6849f9b-ad6c-47b8-9212-f6f0655d0379">
+		<edge src="bb90d713-4708-440b-9277-505a4897b5d9" tgt="66370e54-87d3-472e-9710-3dcfaebe346b">
 		</edge>
 		<edge src="be069a04-4c42-42db-a59f-0c4ed4610cef" tgt="06c8ca8e-867a-4507-9f60-85aaf09ab289">
 			<att name="condition" type="string" value="[a,b]"/>
@@ -1653,7 +1653,7 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="f7db33dc-0881-400f-808b-a7ee59a294f7" tgt="ea05c05d-ee78-443d-93cb-f84cfb14d20a">
 		</edge>
-		<comment x="486" y="154" width="208" height="99" color="#cc0000">Achtung: 
+		<comment x="483" y="132" width="208" height="99" color="#cc0000">Achtung: 
 Hier muss der richtige Pfad eingegeben werden!</comment>
 		<comment x="14" y="443" width="132" height="87" color="#ffff99">index Variable noch benötigt?</comment>
 	</graph>

@@ -47,20 +47,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		<att name="width" type="integer" value="1691"/>
 		<att name="height" type="integer" value="1200"/>
 		<groovyFunctions></groovyFunctions>
-		<grammar id="ef0d4498-5c51-46da-8237-16a99f071f91">
-			<name>mustertest</name>
-			<value>root $input;
- $input = 1 {$= [&quot;eigenschaften&quot;,&quot;eins&quot;]}| 2 {$= [&quot;anleitung&quot;,&quot;zwei&quot;]}| 3{$= [&quot;zutaten&quot;,&quot;drei&quot;]};</value>
-		</grammar>
-		<grammar id="887988cb-ab10-4c6a-9603-09be63e44e57">
-			<name>zutaten_anleitung_weiter</name>
-			<value>root $input;
- $input = $zutaten {$=&quot;zutaten&quot;} | $anleitung {$=&quot;anleitung&quot;} | $weiter {$=&quot;weiter&quot;} | $einkaufszettel {$=&quot;einkaufszettel&quot;} | $ende {$=&quot;ende&quot;};
-$zutaten = [sag mir | gib mir] (die Liste | alle Zutaten | die Zutatenliste) | [die] Zutaten | [die] Zutatenliste | was brauche ich | Zutaten vorlesen;
-$anleitung = [sag mir | gib mir] ([alle] Schritte | [die] (komplette | ganze) Anleitung) | was muss ich tun ;
-$weiter = weiter | [weitere | die] Informationen | überspringen | fortfahren | nein | weder noch | nichts davon | keins von beiden;
-$einkaufszettel = [schreib mir einen] Einkaufszettel | [einen] Einkaufszettel schreiben | [eine] Einkaufsliste schreiben;</value>
-		</grammar>
 		<grammar id="9a5dcd6a-8229-4015-b7ba-cd13e10b853f">
 			<name>janein+</name>
 			<value>//Sprache
@@ -69,11 +55,6 @@ root $input;
 $input = $ja {$ = &quot;ja&quot;}| $nein {$ = &quot;nein&quot;};
 $ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;
 $nein = ( nein [danke] | ne | falsch ) | definitiv nicht | [das] will ich nicht | lieber nicht | besser nicht | bloß nicht | eigentlich nicht | ups;</value>
-		</grammar>
-		<grammar id="0ee8f697-6c5d-4161-9ad0-68af91372797">
-			<name>Untitled</name>
-			<value>root $input;
- $input = ;</value>
 		</grammar>
 		<grammar id="7ea97f36-2f41-4a2e-ba7f-4e363f44836e">
 			<name>ja/nein/umrechnen</name>
@@ -85,12 +66,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 		<variable uid="616a7294-ca38-4923-a7fc-b71a822d01de">
 			<name>result</name>
 			<type>string</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
-		<variable uid="27412cbd-77d1-43b6-b386-266d737f8b00">
-			<name>aktive_rezepte</name>
-			<type>struct</type>
 			<value>undefined</value>
 			<export/>
 		</variable>
@@ -112,18 +87,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 			<value>undefined</value>
 			<export/>
 		</variable>
-		<variable uid="c207ae93-0c3d-44e2-b898-74d3e69943a1">
-			<name>a</name>
-			<type>string</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
-		<variable uid="bcda47c2-ebee-4436-bf09-0a429419b5ed">
-			<name>b</name>
-			<type>string</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
 		<variable uid="8ada212c-756d-439e-acf8-1b22d8127378">
 			<name>einheiten</name>
 			<type>list</type>
@@ -136,12 +99,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 			<value>undefined</value>
 			<export/>
 		</variable>
-		<variable uid="1382c72a-f3f1-44b5-9bc2-84bb32430ec3">
-			<name>laenge</name>
-			<type>int</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
 		<variable uid="c084865e-66cd-44fc-9cec-7ed2da992b3c">
 			<name>counter</name>
 			<type>int</type>
@@ -151,12 +108,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 		<variable uid="1b63e861-2aa9-44bb-8f0e-37b2aa1536c3">
 			<name>anzahl_zutaten</name>
 			<type>int</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
-		<variable uid="322122a8-2b03-42cb-828b-bef92035eb48">
-			<name>zutat</name>
-			<type>string</type>
 			<value>undefined</value>
 			<export/>
 		</variable>
@@ -266,11 +217,11 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 		</node>
 		<node uid="2b65daca-c5ef-43b6-8605-8c60b13d3c53" class="com.clt.diamant.graph.nodes.GotoNode">
 			<graphics x="1126" y="397" fill="#4c4c80"/>
-			<att name="title" type="string" value="contain"/>
+			<att name="title" type="string" value="Goto contains"/>
 			<att name="label_uid" type="string" value="112a4283-2963-4437-9b71-71058dac5a25"/>
 		</node>
 		<node uid="2cd9f344-9635-4025-8d43-05c2facdf712" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-			<graphics x="1418" y="325" fill="#00b200"/>
+			<graphics x="1337" y="281" fill="#00b200"/>
 			<att name="title" type="string" value="Wiedersehen"/>
 			<att name="prompt" type="text">
 				<value>Auf Wiedersehen und guten Appetit!</value>
@@ -296,22 +247,11 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 			<att name="prompt_type" type="string" value="expression"/>
 			<att name="wait" type="boolean" value="1"/>
 		</node>
-		<node uid="453b685a-ed46-400e-9878-e63afe3a09dc" class="com.clt.diamant.graph.nodes.OutputNode">
-			<graphics x="1350" y="268" fill="#00cc99"/>
-			<att name="title" type="string" value="Ausgabe"/>
-			<att name="output" type="list">
-				<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-					<att name="Text" type="string" value="[&quot;ende&quot;]"/>
-				</att>
-			</att>
-			<att name="reset" type="boolean" value="0"/>
-			<att name="wait" type="boolean" value="0"/>
-		</node>
 		<node uid="4693fa4e-646e-404a-93e1-9b83908cb7e8" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 			<graphics x="1214" y="196" fill="#00b200"/>
 			<att name="title" type="string" value="Abbrechen?"/>
 			<att name="prompt" type="text">
-				<value>Mit Ausnahme deines Einkaufszettels werden deine Daten nicht gespeichert.
+				<value>Mit Ausnahme deines Einkaufszettels können deine Daten nicht gespeichert werden.
 Möchtest du den Dialog wirklich abbrechen?</value>
 			</att>
 			<att name="prompt_type" type="string" value="text"/>
@@ -345,7 +285,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="label_uid" type="string" value="9e742940-acbb-4c05-b2b9-3ef0e549b3d0"/>
 		</node>
 		<node uid="5297279c-2f32-4307-bcf5-debc04a15e56" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="1206" y="399" fill="#ffc800"/>
+			<graphics x="1237" y="397" fill="#ffc800"/>
 			<att name="title" type="string" value="wiederholen"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -461,7 +401,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="title" type="string" value="Eigenschaft"/>
 		</node>
 		<node uid="5d3c33ec-9717-4a49-a853-e66d14a7c36b" class="com.clt.diamant.graph.nodes.EndNode">
-			<graphics x="1507" y="382" fill="#9999ff"/>
+			<graphics x="1426" y="338" fill="#9999ff"/>
 			<att name="title" type="string" value="Ende"/>
 		</node>
 		<node uid="617e7007-78ea-48e0-9df0-3f126dbd3ce6" class="com.clt.diamant.graph.nodes.SetVariableNode">
@@ -539,7 +479,7 @@ $hilfe = [ich benötige | ich brauche] Hilfe | wie kann ich (es | das Kochbuch) 
 						<graphics x="422" y="226" fill="#00b200"/>
 						<att name="title" type="string" value="anleitung"/>
 						<att name="prompt" type="text">
-							<value>Du kannst dir die komplette Anleitung in einem vorlesen lassen oder die einzelnen Absätze. Wenn dir die Absätze einzeln vorgelesen werden, kannst du nach jedem Schritt entscheiden, ob du den Schritt nocheinmal hören möchtest oder den nächsten Schritt vorgelesen bekommen willst oder gerne auf den vorherigen Schritt zurück gehen würdest. Außerdem hast du jederzeit die Möglichkeit auf den ersten oder den letzten Schritt zu springen. </value>
+							<value>Du kannst dir die komplette Anleitung in einem vorlesen lassen oder die einzelnen Absätze. Wenn dir die Absätze einzeln vorgelesen werden, kannst du nach jedem Schritt entscheiden, ob du den Schritt nocheinmal hören möchtest oder den nächsten Schritt vorgelesen bekommen willst, oder gerne auf den vorherigen Schritt zurück gehen würdest. Außerdem hast du jederzeit die Möglichkeit auf den ersten oder den letzten Schritt zu springen. </value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -549,7 +489,7 @@ $hilfe = [ich benötige | ich brauche] Hilfe | wie kann ich (es | das Kochbuch) 
 						<att name="title" type="string" value="mehr Infos"/>
 					</node>
 					<node uid="41012946-a18d-4aba-9048-24b6f86bde36" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="531" y="301" fill="#00b200"/>
+						<graphics x="530" y="301" fill="#00b200"/>
 						<att name="title" type="string" value="Noch etwas?"/>
 						<att name="prompt" type="text">
 							<value>Möchtest du noch etwas wissen?</value>
@@ -562,11 +502,11 @@ $hilfe = [ich benötige | ich brauche] Hilfe | wie kann ich (es | das Kochbuch) 
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="6832dca4-7a24-44ee-aa2c-b43042c52350" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="567" y="226" fill="#00b200"/>
+						<graphics x="566" y="225" fill="#00b200"/>
 						<att name="title" type="string" value="einkaufszettel"/>
 						<att name="prompt" type="text">
-							<value>Du kannst dir einen Einkaufszettel schreiben lassen, auf dem alle Zutaten mit den umgerechneten Mengenangaben aufgelistet werden.
-Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzelne Zutaten auf deinen Einkaufszettel schreiben lassen.</value>
+							<value>Du kannst dir einen Aiinkaufszettel schreiben lassen auf dem alle Zutaten mit den um gerechneten Mengenangaben aufgelistet werden.
+Wenn du dir die Zutaten vorlesen lässt, wird dir direkt angeboten, daraus einen Aiinkaufszettel zu erstellen. Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt, auch einzelne Zutaten auf deinen Aiinkaufszettel schreiben lassen.</value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -575,9 +515,12 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<graphics x="502" y="226" fill="#00b200"/>
 						<att name="title" type="string" value="zutaten"/>
 						<att name="prompt" type="text">
-							<value>Du hast die Möglichkeit, dir die Zutaten vorlesen zu lassen. Wenn du dich für das Vorlesen der Zutaenliste entscheidest hast du danach die Möglichkeit, zu entscheiden, ob du sie einzeln oder auf einmal hören möchtest. </value>
+							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Du hast die Möglichkeit dir die Zutaten vorlesen zu lassen. 
+Wenn du dich für dass Vorlesen der Zutatenliste ent scheidest kannst du wählen, ob du sie einzeln oder auf einmal hören &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt;.Wenn du dir die Zutaten einzeln vorlesen lässt, kannst du nach jeder Zutat entscheiden ob du sie noch einmal hören &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt;, ob die nächste Zutat vorgelesen werden soll, oder ob die Zutatenliste abgebrochen werden soll. Außerdem kannst du dir die vorgelesene Zutat auf einen
+ Aiinkaufszettel schreiben lassen oder naach der Auflistung aller Zutaten einen kompletten
+ Aiinkaufszettel erstellen lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
 						</att>
-						<att name="prompt_type" type="string" value="text"/>
+						<att name="prompt_type" type="string" value="maryxml"/>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="71550357-47e7-4df8-a96c-f37081948d07" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
@@ -612,7 +555,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 					</node>
 					<node uid="9060c56d-7f10-40d8-b8b5-e4df7d8c3f79" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="537" y="366" fill="#b20000"/>
-						<att name="title" type="string" value="ja / nein"/>
+						<att name="title" type="string" value="nein / ja"/>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 					</node>
@@ -648,7 +591,7 @@ Außerdem kannst du, wenn du dir die Zutaten einzeln vorlesen lässt auch einzel
 						<graphics x="681" y="226" fill="#00b200"/>
 						<att name="title" type="string" value="infos"/>
 						<att name="prompt" type="text">
-							<value>Du kannst, sofern im Rezept vorhanden, nach den Kalorien, dem Schwierigkeitsgrad, der Arbeitszeit, der Zubereitungszeit und der Koch beziehungsweise der Backzeit fragen.</value>
+							<value>Du kannst - sofern im Rezept vorhanden, nach den Kalorien, dem Schwierigkeitsgrad, der Arbeitszeit, der Zubereitungszeit und der Koch beziehungsweise Backzeit sowie nach der Gesamtdauer fragen.</value>
 						</att>
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -674,7 +617,7 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 					</node>
 					<node uid="f53d7bd6-adf8-4a04-85e7-1fa384082e4a" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="531" y="160" fill="#cc0000"/>
-						<att name="title" type="string" value="Spracherkenner"/>
+						<att name="title" type="string" value="A / Z / E / I"/>
 						<att name="language" type="string" value="Deutsch"/>
 					</node>
 					<edge src="1b254e04-2c3d-4451-a229-33d70d8e2ee0" tgt="41012946-a18d-4aba-9048-24b6f86bde36">
@@ -769,7 +712,7 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="60fe4a31-02e4-4975-b726-f83d311d9324" class="com.clt.diamant.graph.nodes.ScriptNode">
-						<graphics x="323" y="383" fill="#99ffff"/>
+						<graphics x="323" y="384" fill="#99ffff"/>
 						<att name="title" type="string" value="Grammatik (dyngram)"/>
 						<att name="comment" type="text">
 							<value>
@@ -796,7 +739,7 @@ dyngram = dyngram + &quot;$arbeitszeit = wie viel Arbeitszeit (muss | kann | sol
 //$kochzeit
 dyngram = dyngram + &quot;$kochzeit = wie viel (Kochzeit | Backzeit) (muss | kann | soll) ich rechnen | was ist die (Kochzeit | Backzeit) | wie lange (kocht | backt) es | wie lange muss es (kochen | backen) | [die] Kochzeit | [die] Backzeit;&quot;;
 //$gesamtzeit
-dyngram = dyngram + &quot;$gesamtzeit = wie lange brauche ich | wie lange (dauert|braucht) das [Rezept] | [wie ist die] Gesamtzeit | wie viel Zeit muss ich (rechnen | einplanen);&quot;;
+dyngram = dyngram + &quot;$gesamtzeit = wie lange brauche ich | wie lange (dauert|braucht) das [Rezept] | [wie ist die] (Gesamtzeit | Gesamtdauer) | wie viel Zeit muss ich (rechnen | einplanen);&quot;;
 
 //$schwierig
 dyngram = dyngram + &quot;$schwierig = wie schwer ist (es | das Rezept) | welchen Schwierigkeitsgrad hat (es | das Rezept)| Schwierigkeitsgrad | (wie | was) ist der Schwierigkeitsgrad | Schwierigkeitsgrad | ist es schwierig ;&quot;;
@@ -820,7 +763,7 @@ dyngram = dyngram + &quot;$zutaten_exist = (brauche ich | braucht man | brauchen
 //$zutaten_menge
 dyngram = dyngram + &quot;$zutaten_menge = wie viel $term_z [brauche ich] {$=[\&quot;zutaten\&quot;, $term_z]};&quot;;
 //$term_z
-dyngram = dyngram + &quot;$term_z = &quot; + get(ingredients,0);
+dyngram = dyngram + &quot;$term_z = \&quot;&quot; + get(ingredients,0) + &quot;\&quot;&quot;;
 for (int i = 1; i&lt;length(ingredients); i++)
   dyngram = dyngram + &quot; | \&quot;&quot; + get(ingredients,i) + &quot;\&quot;&quot;;
 dyngram = dyngram + &quot;;&quot;;
@@ -838,7 +781,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						</att>
 					</node>
 					<node uid="7e0348bd-eb6e-478f-8498-c635e5467f42" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="269" y="326" fill="#ff5a5a"/>
+						<graphics x="269" y="327" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Einheitenliste"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -851,7 +794,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="8631d0bd-fdde-449a-956e-ecd51504dd1f" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="225" y="269" fill="#ff5a5a"/>
+						<graphics x="224" y="270" fill="#ff5a5a"/>
 						<att name="title" type="string" value="ingredients"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -877,7 +820,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="cca27864-097a-40cd-847e-be9311ddbd8c" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="383" y="440" fill="#9999ff"/>
+						<graphics x="383" y="441" fill="#9999ff"/>
 						<att name="title" type="string" value="Portionen"/>
 					</node>
 					<node uid="d8a41a27-5c26-41cc-919d-2720d9cc0920" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
@@ -890,7 +833,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="f2d077af-0d3d-4281-ab84-566eeb987a9b" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="197" y="212" fill="#ff5a5a"/>
+						<graphics x="197" y="213" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Titel"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -1040,7 +983,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 			<att name="title" type="string" value="anleitung, was tun?"/>
 			<att name="prompt" type="text">
 				<value>result +
-&quot;Was kann ich weiter für dich tun?&quot;</value>
+&quot; Soll ich die Anleitung wiederholen, dir alle Zutaten vorlesen oder möchtest du nach weiteren Informationen fragen?&quot;</value>
 			</att>
 			<att name="prompt_type" type="string" value="expression"/>
 			<att name="wait" type="boolean" value="1"/>
@@ -1115,11 +1058,6 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<type>string</type>
 						<value>undefined</value>
 					</variable>
-					<variable uid="8859d6a2-9781-46f6-95b0-7d4ad562f8e5">
-						<name>text</name>
-						<type>string</type>
-						<value>undefined</value>
-					</variable>
 					<node uid="09dd1531-af0c-4e94-a64f-3803cb51a70e" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="292" y="332" fill="#00b200"/>
 						<att name="title" type="string" value="Grounding Zutatenmenge"/>
@@ -1142,9 +1080,9 @@ for (int i = 3; i&lt;50 ; i++)
 gram = gram + &quot;;&quot;;
 
 gram = gram + &quot;$zutaten = [ich möchte] [für] $zahl $einheit $term_z [kochen] {$=[\&quot;Zutaten\&quot;, $term_z, $zahl, $einheit]}| [ich möchte] [für] $zahl $term_z [kochen] {$=[\&quot;Zutaten\&quot;, $term_z, $zahl]};&quot;;
-gram = gram + &quot;$term_z = &quot; + get(ingredients,0);
+gram = gram + &quot;$term_z = \&quot;&quot; + get(ingredients,0) + &quot;\&quot;&quot;;
 for (int i = 1; i&lt;length(ingredients); i++)
-	gram = gram + &quot; | &quot; + get(ingredients,i);
+	gram = gram + &quot; | \&quot;&quot; + get(ingredients,i) + &quot;\&quot;&quot;;
 gram = gram + &quot;;&quot;;
 gram = gram + &quot;$einheit = &quot; + get(einheiten, 0);
 for (int i = 1; i&lt;length(einheiten); i++)
@@ -1193,9 +1131,10 @@ gram = gram + &quot;;&quot;;</value>
 						<graphics x="317" y="413" fill="#b20000"/>
 						<att name="title" type="string" value="ja / nein"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 					</node>
 					<node uid="686d8982-1308-4482-84ed-77123528342f" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="146" y="332" fill="#00b200"/>
+						<graphics x="146" y="333" fill="#00b200"/>
 						<att name="title" type="string" value="Grounding Personen"/>
 						<att name="prompt" type="text">
 							<value>&quot;Möchtest du das Rezept für &quot; + term + &quot;Personen umrechnen?&quot;</value>
@@ -1216,6 +1155,7 @@ gram = gram + &quot;;&quot;;</value>
 						<graphics x="171" y="413" fill="#b20000"/>
 						<att name="title" type="string" value="ja / nein"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 					</node>
 					<node uid="7e1d1938-28e0-42ec-bdb5-f06f983a857a" class="com.clt.diamant.graph.nodes.ReturnNode">
 						<graphics x="367" y="755" fill="#9999ff"/>
@@ -1225,7 +1165,7 @@ gram = gram + &quot;;&quot;;</value>
 						<graphics x="318" y="587" fill="#00b200"/>
 						<att name="title" type="string" value="Umgerechnet!"/>
 						<att name="prompt" type="text">
-							<value>text</value>
+							<value>result</value>
 						</att>
 						<att name="prompt_type" type="string" value="expression"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -1247,6 +1187,7 @@ gram = gram + &quot;;&quot;;</value>
 						<graphics x="475" y="413" fill="#b20000"/>
 						<att name="title" type="string" value="nein / ja"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="9a5dcd6a-8229-4015-b7ba-cd13e10b853f"/>
 					</node>
 					<node uid="ac8c1106-0939-4a24-bb78-22494d51372d" class="com.clt.diamant.graph.nodes.StartNode">
 						<graphics x="353" y="24" fill="#9999ff"/>
@@ -1255,7 +1196,7 @@ gram = gram + &quot;;&quot;;</value>
 					<node uid="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" class="com.clt.diamant.graph.nodes.ConditionalNode">
 						<graphics x="336" y="654" fill="#c0c0c0"/>
 						<att name="title" type="string" value="erfolg?"/>
-						<att name="expression" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
+						<att name="expression" type="string" value="result == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
 					</node>
 					<node uid="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="322" y="240" fill="#b20000"/>
@@ -1283,7 +1224,7 @@ gram = gram + &quot;;&quot;;</value>
 					<edge src="1493b044-d03c-4947-b8ec-c0ecd752a126" tgt="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33">
 					</edge>
 					<edge src="15deda19-dca3-4eec-a387-88580c300a56" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
-						<att name="condition" type="string" value="text"/>
+						<att name="condition" type="string" value="result"/>
 					</edge>
 					<edge src="5364ca1d-cb97-4dab-ad63-adfdf6aaea55" tgt="15deda19-dca3-4eec-a387-88580c300a56">
 						<att name="condition" type="string" value="&quot;ja&quot;"/>
@@ -1304,7 +1245,7 @@ gram = gram + &quot;;&quot;;</value>
 					<edge src="92af95d0-f04f-45be-ae92-c82dff4716e7" tgt="b5e6e60a-64bf-4ae5-b615-3d8076659f1c">
 					</edge>
 					<edge src="9dda5d05-3e48-4eaa-a0fc-b5309a6feab4" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
-						<att name="condition" type="string" value="text"/>
+						<att name="condition" type="string" value="result"/>
 					</edge>
 					<edge src="a77c9257-da4f-4248-8b3f-f5cbf31bdba4" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
 						<att name="condition" type="string" value="&quot;nein&quot;"/>
@@ -1315,7 +1256,7 @@ gram = gram + &quot;;&quot;;</value>
 					<edge src="ac8c1106-0939-4a24-bb78-22494d51372d" tgt="0fb72173-4152-4ae7-9891-f77484e7750a">
 					</edge>
 					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="7e1d1938-28e0-42ec-bdb5-f06f983a857a">
-						<att name="condition" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
+						<att name="condition" type="string" value="result == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
 					</edge>
 					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
 						<att name="condition" type="string" value="else"/>
@@ -1333,11 +1274,8 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="condition" type="string" value="&quot;Ende&quot;"/>
 					</edge>
 					<edge src="f44f0a3c-4fcb-4973-af94-e859283a93a6" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
-						<att name="condition" type="string" value="text"/>
+						<att name="condition" type="string" value="result"/>
 					</edge>
-					<comment x="83" y="133" width="166" height="78" color="#ffff99">Fehler, falls Einheiten nicht zur Zutat passen
-
-Grounding</comment>
 				</graph>
 			</att>
 			<att name="endpoints" type="list">
@@ -1381,7 +1319,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<graphics x="174" y="874" fill="#00b200"/>
 						<att name="title" type="string" value="Zettel ergänzt"/>
 						<att name="prompt" type="text">
-							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Dein Aiinkaufszettel wurde ergänzt. &lt;t ph=&quot;'m9C-t@st&quot;&gt;Möchtest&lt;/t&gt; du die letzte Zutat noch einmal hören, die nächste Zutat vorgelesen bekommen oder abbrechen??&lt;/prosody&gt;&lt;/maryxml&gt;</value>
+							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Dein Aiinkaufszettel wurde ergänzt.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
 						</att>
 						<att name="prompt_type" type="string" value="maryxml"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -1419,7 +1357,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="title" type="string" value="Zettel schreiben"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-								<att name="Text" type="string" value="[&quot;Zettel&quot;, zutat]"/>
+								<att name="Text" type="string" value="[&quot;Zettel&quot;, result]"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
@@ -1490,7 +1428,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					</node>
 					<node uid="8331156a-e922-4e78-a6cf-92c245441ee9" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="607" y="904" fill="#00b200"/>
-						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="title" type="string" value="Fertig"/>
 						<att name="prompt" type="text">
 							<value>Zurück zum Hauptdialog.</value>
 						</att>
@@ -1505,7 +1443,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					</node>
 					<node uid="9337c979-876c-473b-bffa-eaf009872ced" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="702" y="784" fill="#00b200"/>
-						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="title" type="string" value="Das war's"/>
 						<att name="prompt" type="text">
 							<value>Das waren alle Zutaten.</value>
 						</att>
@@ -1516,7 +1454,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<graphics x="503" y="577" fill="#00b200"/>
 						<att name="title" type="string" value="...&lt;Zutat&gt;"/>
 						<att name="prompt" type="text">
-							<value>zutat</value>
+							<value>result</value>
 						</att>
 						<att name="prompt_type" type="string" value="expression"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -1545,7 +1483,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 							</att>
 							<att name="2" type="list">
 								<att name="var_uid" type="string" value="1b63e861-2aa9-44bb-8f0e-37b2aa1536c3"/>
-								<att name="var_value" type="string" value="length(ingredients)"/>
+								<att name="var_value" type="string" value="length(result2)"/>
 							</att>
 						</att>
 						<att name="simultaneous" type="boolean" value="0"/>
@@ -1554,9 +1492,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<graphics x="371" y="371" fill="#00b200"/>
 						<att name="title" type="string" value="Anleitung"/>
 						<att name="prompt" type="text">
-							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Die Zutaten werden dir einzeln vorgelesen. Nach jeder Zutat kannst du entscheiden ob du sie noch einmal hören &lt;t ph=&quot;'m9C-t@st&quot;&gt;möchtest&lt;/t&gt;, ob die nächste Zutat vorgelesen werden soll, oder ob die Zutatenliste abgebrochen werden soll. Außerdem kannst du dir die vorgelesene Zutat auf einen
- Aiinkaufszettel schreiben lassen oder naach der Auflistung aller Zutaten einen kompletten
- Aiinkaufszettel erstellen lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
+							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Die Zutaten werden dir einzeln vorgelesen. Du kannst die Zutaten direkt oder später auf deinen Aiinkaufszettel schreiben lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
 						</att>
 						<att name="prompt_type" type="string" value="maryxml"/>
 						<att name="wait" type="boolean" value="1"/>
@@ -1570,7 +1506,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="title" type="string" value="nächste Zutat (Schleife)"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
-								<att name="var_uid" type="string" value="322122a8-2b03-42cb-828b-bef92035eb48"/>
+								<att name="var_uid" type="string" value="616a7294-ca38-4923-a7fc-b71a822d01de"/>
 								<att name="var_value" type="string" value="get(result2, counter)"/>
 							</att>
 						</att>
@@ -1640,8 +1576,6 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					</edge>
 					<edge src="f642fd85-fa61-4713-a0ca-c7dfc28700a6" tgt="935432aa-1185-4e88-9ed8-0e34dde4e5e3">
 					</edge>
-					<comment x="17" y="851" width="145" height="86" color="#ffff99">lang, vor allem, da bei jeder Zutat
-aber wie kürzen?</comment>
 				</graph>
 			</att>
 			<att name="endpoints" type="list">
@@ -1739,8 +1673,6 @@ aber wie kürzen?</comment>
 		</edge>
 		<edge src="37233152-ee46-4cd0-a4fa-22d283343513" tgt="a16ebd1d-5845-48b6-bd78-071999eb704c">
 		</edge>
-		<edge src="453b685a-ed46-400e-9878-e63afe3a09dc" tgt="2cd9f344-9635-4025-8d43-05c2facdf712">
-		</edge>
 		<edge src="4693fa4e-646e-404a-93e1-9b83908cb7e8" tgt="6d36c812-3aaa-4725-9256-c0dc5058b400">
 		</edge>
 		<edge src="48791351-f2f2-4aed-ad81-cec3b17ad87c" tgt="308e062e-f331-400a-ba5d-bf38e5d16e0e">
@@ -1798,7 +1730,7 @@ aber wie kürzen?</comment>
 		<edge src="6d36c812-3aaa-4725-9256-c0dc5058b400" tgt="66370e54-87d3-472e-9710-3dcfaebe346b">
 			<att name="condition" type="string" value="&quot;nein&quot;"/>
 		</edge>
-		<edge src="6d36c812-3aaa-4725-9256-c0dc5058b400" tgt="453b685a-ed46-400e-9878-e63afe3a09dc">
+		<edge src="6d36c812-3aaa-4725-9256-c0dc5058b400" tgt="2cd9f344-9635-4025-8d43-05c2facdf712">
 			<att name="condition" type="string" value="&quot;ja&quot;"/>
 		</edge>
 		<edge src="707df6cf-7eb4-4dec-b198-c15392f35f9c" tgt="66370e54-87d3-472e-9710-3dcfaebe346b">

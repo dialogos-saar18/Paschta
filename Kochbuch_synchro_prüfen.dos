@@ -27,6 +27,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<plugin type="resources.de.dialogos.plugin">
+	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -36,6 +38,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -516,7 +520,7 @@ $weiter = [direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen 
 $hilfe = Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja;</value>
 					</grammar>
 					<node uid="1b254e04-2c3d-4451-a229-33d70d8e2ee0" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="401" y="591" fill="#00b200"/>
+						<graphics x="402" y="591" fill="#00b200"/>
 						<att name="title" type="string" value="anleitung"/>
 						<att name="prompt" type="text">
 							<value>Du kannst dir die komplette Anleitung in einem vorlesen lassen oder die einzelnen Absätze. Wenn dir die Absätze einzeln vorgelesen werden, kannst du nach jedem Schritt entscheiden, ob du den Schritt nocheinmal hören möchtest oder den nächsten Schritt vorgelesen bekommen willst oder gerne auf den vorherigen Schritt zurück gehen würdest. Außerdem hast du jederzeit die Möglichkeit auf den ersten oder den letzten Schritt zu springen. </value>
@@ -1206,7 +1210,7 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="329" y="240" fill="#b20000"/>
+						<graphics x="327" y="238" fill="#b20000"/>
 						<att name="title" type="string" value="Spracherkenner"/>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammarExpression" type="string" value="gram"/>

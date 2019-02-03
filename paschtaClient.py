@@ -45,7 +45,6 @@ class Main(Client):
     # "Zettel" Text
     # "portionen" "wert"
     # "Personen" Anzahl
-    # "ende"
     def output(self, value):
         value = list(value)# value hat jetzt den Typ Value list
         # das erste Element von value zeigt an, was passieren soll
@@ -93,10 +92,6 @@ class Main(Client):
             m = value[2].getString().strip('"')
             e = str(value[3]).strip('"') # hier str() und nicht getString(), weil value[3] ein IntValue ist
             self.send(self.recipe.umrechnen([m,e], z))
-
-        # reset Schrittindex (wenn <TODO>)
-        elif category == "ende":
-            self.recipe.set_schritt(0)
 
         # gibt die komplette Anleitung oder einen Schritt zurück
         elif category == "anleitung":

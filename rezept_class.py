@@ -94,9 +94,6 @@ class Recipe:
             print (u'Unerwartetes Argument '+str(argument)+u' in get_schritt')
             return ("Fehler")
             ### TODO: raise Error ?
-
-    def set_schritt(self, value):
-        self.schritt = value
         
     #option: entweder "all" oder Text, der auf die Einkaufsliste soll
     def einkaufszettel(self,option):
