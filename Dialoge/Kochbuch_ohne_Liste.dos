@@ -1135,7 +1135,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="script" type="text">
 							<value>gram = &quot;root $input; \n&quot;;
 gram = gram + &quot;$input = $personen {$=$personen} | $zutaten {$=$zutaten} | (ende | abbrechen | gar nicht | nein | nicht umrechnen) {$=\&quot;Ende\&quot;};&quot;;
-gram = gram + &quot;$personen = [ich möchte] [für] 1 [Person | Portion] kochen {$=[\&quot;Personen\&quot;,\&quot;&quot;+1+&quot;\&quot;]} | [ich möchte] [für|mit] $anz [Personen| Portionen] [kochen] {$=[\&quot;Personen\&quot;, $anz]} | für $anz {$=[\&quot;Personen\&quot;, $anz]} | [für] die (doppelte|zweifache) Menge {$=[\&quot;Personen\&quot;, \&quot;2\&quot;]} | [für] (die halbe Menge|die Hälfte) {$=[\&quot;Personen\&quot;, \&quot;0.5\&quot;]} | [für] (die anderthalbfache | eineinhalbfache) Menge {$=[\&quot;Personen\&quot;,\&quot;1.5\&quot;]};&quot;;
+gram = gram + &quot;$personen = [ich möchte] (([für] eine [Person | Portion]) | [nur] für mich [allein] | für eine Einzelperson) kochen {$=[\&quot;Personen\&quot;,\&quot;&quot;+1+&quot;\&quot;]} | [ich möchte] [für|mit] $anz [Personen| Portionen] [kochen] {$=[\&quot;Personen\&quot;, $anz]} | für $anz {$=[\&quot;Personen\&quot;, $anz]} | [für] die (doppelte|zweifache) Menge {$=[\&quot;Personen\&quot;, \&quot;2\&quot;]} | [für] (die halbe Menge|die Hälfte) {$=[\&quot;Personen\&quot;, \&quot;0.5\&quot;]} | [für] (die anderthalbfache | eineinhalbfache) Menge {$=[\&quot;Personen\&quot;,\&quot;1.5\&quot;]};&quot;;
 gram = gram + &quot;$anz = 2&quot;;
 for (int i = 3; i&lt;50 ; i++)
 	gram = gram + &quot; | &quot; + i ;

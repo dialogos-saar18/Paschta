@@ -14,22 +14,6 @@ from java.awt import Color
 from java.awt import Dimension
 from java.lang import Class
 
-# Hilfsfunktion; ruft die Methoden auf, die die Informationen auslesen
-def call(category, term, recipe):
-    # gibt die komplette Anleitung oder einen Schritt zurück
-    if category == "anleitung":
-        # term Element von {"first","next","repeat","all","previous", "last"}
-        return(recipe.get_schritt(term))
-    # gibt alle Zutaten oder einzelne Zutaten zurück (mit Mengenangaben, falls vorhanden)
-    elif category == "zutaten": 
-        return(recipe.get_zutat(term))
-    # auslesen der Eigenschaften wie Arbeitszeit, Schwierigkeitsgrad etc.
-    elif category == "eigenschaft":
-        return(recipe.get_property(term))
-    else:
-        print("Fehler in call; Kategorie " + category + " ist ungültig")
-        return ("ungültig")
-        # TODO: raise Error! 
 
 # TODO: Leerzeichen
 
@@ -49,76 +33,91 @@ class Main(Client):
 
     # "URL"
     # "ingredients"
-    # "title"
-    # "einkaufszettel"
-    # "anleitung"/"zutat"/"eigenschaft" suchbegriff
+    # "exists_zutat" Bezeichnung
+    # "Zutaten" Bezeichnung Mengenangabe (Einheit | 0)
+    # "zutaten" ("all" | Bezeichnung)
+    # "eigenschaft" ("Arbeitszeit" | "Ruhezeit" | "Koch-/Backzeit" | "Gesamtzeit" | "Schwierigkeitsgrad" | "Kalorien")
+    # "anleitung" ("first" | "next" | "previous" | "repeat" | "last" | "all")
+    # "titel"
+    # "einheiten"
+    # "einkaufszettel" ("all" | _ )
     # "portionen" "wert"
-    # "exists_zutat" suchbegriff
+    # "Personen" Anzahl
+    # "ende"
     def output(self, value):
-        value = list(value)
-        # value hat jetzt den Typ Value list
-        # TODO: key = value[0].getString().strip('"')
+        value = list(value)# value hat jetzt den Typ Value list
+        # das erste Element von value zeigt an, was passieren soll
+        category = value[0].getString().strip('"')
 
         # Quelltext für Rezept abfragen
-        if value[0].getString().strip('"') == "URL":
+        if category == "URL":
             self.gui()
-            print("created recipe")
+            print("created recipe for " + self.recipe.get_title())
             # TODO: print title
 
         # erstellt Liste mit allen Zutaten (ohne Mengenangaben)
-        elif value[0].getString().strip('"')=="ingredients":
+        elif category == "ingredients":
             self.send(self.recipe.ingredients())
             
         # erstellt Liste mit allen Einheiten
-        elif value[0].getString().strip('"')=="einheiten":
+        elif category == "einheiten":
             self.send(self.recipe.einheiten())
                 
         # fragt den Titel des Rezepts ab
-        elif value[0].getString().strip('"')=="titel":
+        elif category == "titel":
             self.send(self.recipe.get_title())
 
         # kompletten Einkaufszettel schreiben
-        elif value[0].getString().strip('"')=="einkaufszettel":
+        elif category == "einkaufszettel":
             self.send(self.recipe.einkaufszettel("all"))
             # TODO: what does this send?
 
         # einzelne Zutat auf Einkaufszettel (keine Rückmeldung an den Dialog)
-        elif value[0].getString().strip('"')=="Zettel":
+        elif category == "Zettel":
             self.recipe.einkaufszettel(value[1].getString().strip('"'))
 
-        # gibt Antwort zurück, ob eine Zutat gebraucht wird
-        elif value[0].getString().strip('"')=="exists_zutat":
+        # gibt Text-Antwort zurück, ob eine Zutat gebraucht wird
+        elif category == "exists_zutat":
             self.send(self.recipe.contains(value[1].getString().strip('"')))
-
-        # TODO
-        elif value[0].getString().strip('"')=="zutaten":
-            self.send(self.recipe.get_zutat(value[1].getString().strip('"')))
             
         # gibt zurück, für wie viele Personen das Rezept kalkuliert ist
-        elif value[0].getString().strip('"')=="portionen":
-            if value[1].getString().strip('"')== "wert":
+        elif category == "portionen":
+            if value[1].getString().strip('"') == "wert":
                 self.send(str(self.recipe.get_portions()))
             # TODO: else
 
         # fürs Umrechnen nach Personen
-        elif value[0].getString().strip('"') == "Personen":
+        elif category  == "Personen":
             self.send(self.recipe.umrechnen(value[1].getString().strip('"'),u'Personen'))
         # fürs Umrechnen nach Zutaten
-        elif value[0].getString().strip('"')=="Zutaten":
+        elif category == "Zutaten":
             z = value[1].getString().strip('"')
             m = value[2].getString().strip('"')
-            e = str(value[3]).strip('"')
+            e = str(value[3]).strip('"') # hier str() und nicht getString(), weil value[3] ein IntValue ist
             self.send(self.recipe.umrechnen([m,e],z))
 
         # reset Schrittindex (wenn <TODO>)
-        elif value[0].getString().strip('"') == "ende":
+        elif category == "ende":
             self.recipe.schritt = 0
 
-        # TODO: what does it do and what it the first element? (make this an elif and throw error if not match
+        # gibt die komplette Anleitung oder einen Schritt zurück
+        elif category == "anleitung":
+            # Funktionsargument {"first","next","previous","repeat","last","all"}
+            self.send(self.recipe.get_schritt(value[1].getString().strip('"')))
+        
+        # gibt alle Zutaten oder einzelne Zutaten zurück (mit Mengenangaben, falls vorhanden)
+        elif category == "zutaten": 
+            self.send(self.recipe.get_zutat(value[1].getString().strip('"')))
+        
+        # auslesen der Eigenschaften wie Arbeitszeit, Schwierigkeitsgrad etc.
+        elif category == "eigenschaft":
+            self.send(self.recipe.get_property(value[1].getString().strip('"')))
+        
         else:
-            self.send(call(value[0].getString().strip('"'), value[1].getString().strip('"'), self.recipe))
+            print("Fehler in call; Kategorie " + category + " ist ungültig")
+            self.send("Fehler")
+            # TODO: raise Error!
 
-        # TODO: test
         print "output: " + "done (" + str(value) + ")"
 
     def getName(self):
