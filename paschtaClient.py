@@ -107,7 +107,7 @@ class Main(Client):
         elif value[0].getString().strip('"')=="Zutaten":
             z = value[1].getString().strip('"')
             m = value[2].getString().strip('"')
-            e = value[3].getString().strip('"')
+            e = str(value[3]).strip('"')
             self.send(self.recipe.umrechnen([m,e],z))
 
         # reset Schrittindex (wenn <TODO>)

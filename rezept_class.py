@@ -50,7 +50,7 @@ class Recipe:
     def get_schritt(self, argument): #returns string
         
         if argument == u'first':
-            return u'Lass uns loslegen: ' + self.anleitung[self.schritt]
+            return u'Lass uns loslegen: ' + self.anleitung[0]
         elif argument == u'next':
             try:
                 self.schritt += 1
@@ -72,11 +72,12 @@ class Recipe:
         elif argument == u'all':
             r = u''
             for i in range(len(self.anleitung)):
-                r += str(i+1) + u'. ' + self.anleitung[i] + u'  '
+                r += self.anleitung[i] + u'  '
             return r
         else:
             print (u'Unerwartetes Argument '+str(argument)+u' in get_schritt')
-            ###raise Error
+            return ("Fehler")
+            ### TODO: raise Error
 
 
     #option: entweder "all" oder die der Index der Zutat, die aufgeschrieben werden soll
