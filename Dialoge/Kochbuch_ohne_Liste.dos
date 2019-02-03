@@ -27,8 +27,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
-	<plugin type="resources.de.dialogos.plugin">
-	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -37,8 +35,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
-	</plugin>
-	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -1111,7 +1107,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 			<att name="label_uid" type="string" value="9296bee1-8a4d-43d8-91ec-46d9730d2f81"/>
 		</node>
 		<node uid="e31926ce-dacc-4ba0-9c7d-0f5222f27a89" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="170" y="548" fill="#ffc800"/>
+			<graphics x="146" y="586" fill="#ffc800"/>
 			<att name="title" type="string" value="umrechnen "/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -1130,6 +1126,11 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 					</variable>
 					<variable uid="838205a0-8dc2-4787-92fe-a5bde94658a3">
 						<name>term3</name>
+						<type>string</type>
+						<value>undefined</value>
+					</variable>
+					<variable uid="8859d6a2-9781-46f6-95b0-7d4ad562f8e5">
+						<name>text</name>
 						<type>string</type>
 						<value>undefined</value>
 					</variable>
@@ -1189,6 +1190,19 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="prompt_type" type="string" value="maryxml"/>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
+					<node uid="15deda19-dca3-4eec-a387-88580c300a56" class="com.clt.diamant.graph.nodes.InputNode">
+						<graphics x="335" y="507" fill="#ff5a5a"/>
+						<att name="title" type="string" value="Eingabe"/>
+						<att name="output" type="list">
+							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
+								<att name="Text" type="string" value="[&quot;Zutaten&quot;, term1, term2, term3]"/>
+							</att>
+						</att>
+						<att name="reset" type="boolean" value="0"/>
+						<att name="wait" type="boolean" value="0"/>
+						<att name="discard" type="boolean" value="0"/>
+						<att name="ignoreInputHandlers" type="boolean" value="0"/>
+					</node>
 					<node uid="5364ca1d-cb97-4dab-ad63-adfdf6aaea55" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="317" y="413" fill="#b20000"/>
 						<att name="title" type="string" value="ja / nein"/>
@@ -1218,28 +1232,30 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="language" type="string" value="Deutsch"/>
 					</node>
 					<node uid="7e1d1938-28e0-42ec-bdb5-f06f983a857a" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="367" y="627" fill="#9999ff"/>
+						<graphics x="394" y="755" fill="#9999ff"/>
 						<att name="title" type="string" value="Return: Hilfe?"/>
 					</node>
-					<node uid="8dc20fe8-e337-4dea-91d1-1780a97e9949" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="431" y="479" fill="#00cc99"/>
-						<att name="title" type="string" value="umrechnen"/>
+					<node uid="92af95d0-f04f-45be-ae92-c82dff4716e7" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+						<graphics x="318" y="587" fill="#00b200"/>
+						<att name="title" type="string" value="Umgerechnet!"/>
+						<att name="prompt" type="text">
+							<value>text</value>
+						</att>
+						<att name="prompt_type" type="string" value="expression"/>
+						<att name="wait" type="boolean" value="1"/>
+					</node>
+					<node uid="9dda5d05-3e48-4eaa-a0fc-b5309a6feab4" class="com.clt.diamant.graph.nodes.InputNode">
+						<graphics x="196" y="508" fill="#ff5a5a"/>
+						<att name="title" type="string" value="Eingabe"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-								<att name="Text" type="string" value="[&quot;Zutaten&quot;, term1, term2, 0]"/>
+								<att name="Text" type="string" value="[&quot;Personen&quot;, term]"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
 						<att name="wait" type="boolean" value="0"/>
-					</node>
-					<node uid="92af95d0-f04f-45be-ae92-c82dff4716e7" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="319" y="555" fill="#00b200"/>
-						<att name="title" type="string" value="Umgerechnet!"/>
-						<att name="prompt" type="text">
-							<value>&quot;Die Zutaten wurden umgerechnet&quot;</value>
-						</att>
-						<att name="prompt_type" type="string" value="text"/>
-						<att name="wait" type="boolean" value="1"/>
+						<att name="discard" type="boolean" value="0"/>
+						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="a77c9257-da4f-4248-8b3f-f5cbf31bdba4" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="475" y="413" fill="#b20000"/>
@@ -1250,16 +1266,10 @@ gram = gram + &quot;;&quot;;</value>
 						<graphics x="353" y="24" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
-					<node uid="b38798ac-9804-4eeb-bb73-29a8d5b93471" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="227" y="479" fill="#00cc99"/>
-						<att name="title" type="string" value="umrechnen"/>
-						<att name="output" type="list">
-							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-								<att name="Text" type="string" value="[&quot;Personen&quot;, term]"/>
-							</att>
-						</att>
-						<att name="reset" type="boolean" value="0"/>
-						<att name="wait" type="boolean" value="0"/>
+					<node uid="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" class="com.clt.diamant.graph.nodes.ConditionalNode">
+						<graphics x="341" y="654" fill="#c0c0c0"/>
+						<att name="title" type="string" value="erfolg?"/>
+						<att name="expression" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
 					</node>
 					<node uid="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="322" y="240" fill="#b20000"/>
@@ -1267,16 +1277,18 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammarExpression" type="string" value="gram"/>
 					</node>
-					<node uid="d8be8c21-98b1-439e-8257-4b83c99c427b" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="329" y="479" fill="#00cc99"/>
-						<att name="title" type="string" value="umrechnen"/>
+					<node uid="f44f0a3c-4fcb-4973-af94-e859283a93a6" class="com.clt.diamant.graph.nodes.InputNode">
+						<graphics x="468" y="507" fill="#ff5a5a"/>
+						<att name="title" type="string" value="Eingabe"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-								<att name="Text" type="string" value="[&quot;Zutaten&quot;, term1, term2, term3]"/>
+								<att name="Text" type="string" value="[&quot;Zutaten&quot;, term1, term2, 0]"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
 						<att name="wait" type="boolean" value="0"/>
+						<att name="discard" type="boolean" value="0"/>
+						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<edge src="09dd1531-af0c-4e94-a64f-3803cb51a70e" tgt="5364ca1d-cb97-4dab-ad63-adfdf6aaea55">
 					</edge>
@@ -1284,7 +1296,10 @@ gram = gram + &quot;;&quot;;</value>
 					</edge>
 					<edge src="1493b044-d03c-4947-b8ec-c0ecd752a126" tgt="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33">
 					</edge>
-					<edge src="5364ca1d-cb97-4dab-ad63-adfdf6aaea55" tgt="d8be8c21-98b1-439e-8257-4b83c99c427b">
+					<edge src="15deda19-dca3-4eec-a387-88580c300a56" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+						<att name="condition" type="string" value="text"/>
+					</edge>
+					<edge src="5364ca1d-cb97-4dab-ad63-adfdf6aaea55" tgt="15deda19-dca3-4eec-a387-88580c300a56">
 						<att name="condition" type="string" value="&quot;ja&quot;"/>
 					</edge>
 					<edge src="5364ca1d-cb97-4dab-ad63-adfdf6aaea55" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
@@ -1294,25 +1309,30 @@ gram = gram + &quot;;&quot;;</value>
 					</edge>
 					<edge src="77ef0e95-f417-4732-95ed-23b722ff81a5" tgt="a77c9257-da4f-4248-8b3f-f5cbf31bdba4">
 					</edge>
-					<edge src="785fcf90-aaf4-46d4-b129-f683d00d99bd" tgt="b38798ac-9804-4eeb-bb73-29a8d5b93471">
+					<edge src="785fcf90-aaf4-46d4-b129-f683d00d99bd" tgt="9dda5d05-3e48-4eaa-a0fc-b5309a6feab4">
 						<att name="condition" type="string" value="&quot;ja&quot;"/>
 					</edge>
 					<edge src="785fcf90-aaf4-46d4-b129-f683d00d99bd" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
 						<att name="condition" type="string" value="&quot;nein&quot;"/>
 					</edge>
-					<edge src="8dc20fe8-e337-4dea-91d1-1780a97e9949" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+					<edge src="92af95d0-f04f-45be-ae92-c82dff4716e7" tgt="b5e6e60a-64bf-4ae5-b615-3d8076659f1c">
 					</edge>
-					<edge src="92af95d0-f04f-45be-ae92-c82dff4716e7" tgt="7e1d1938-28e0-42ec-bdb5-f06f983a857a">
+					<edge src="9dda5d05-3e48-4eaa-a0fc-b5309a6feab4" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+						<att name="condition" type="string" value="text"/>
 					</edge>
 					<edge src="a77c9257-da4f-4248-8b3f-f5cbf31bdba4" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
 						<att name="condition" type="string" value="&quot;nein&quot;"/>
 					</edge>
-					<edge src="a77c9257-da4f-4248-8b3f-f5cbf31bdba4" tgt="8dc20fe8-e337-4dea-91d1-1780a97e9949">
+					<edge src="a77c9257-da4f-4248-8b3f-f5cbf31bdba4" tgt="f44f0a3c-4fcb-4973-af94-e859283a93a6">
 						<att name="condition" type="string" value="&quot;ja&quot;"/>
 					</edge>
 					<edge src="ac8c1106-0939-4a24-bb78-22494d51372d" tgt="0fb72173-4152-4ae7-9891-f77484e7750a">
 					</edge>
-					<edge src="b38798ac-9804-4eeb-bb73-29a8d5b93471" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="7e1d1938-28e0-42ec-bdb5-f06f983a857a">
+						<att name="condition" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
+					</edge>
+					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33">
+						<att name="condition" type="string" value="else"/>
 					</edge>
 					<edge src="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" tgt="686d8982-1308-4482-84ed-77123528342f">
 						<att name="condition" type="string" value="[&quot;Personen&quot;,term]"/>
@@ -1326,7 +1346,8 @@ gram = gram + &quot;;&quot;;</value>
 					<edge src="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" tgt="7e1d1938-28e0-42ec-bdb5-f06f983a857a">
 						<att name="condition" type="string" value="&quot;Ende&quot;"/>
 					</edge>
-					<edge src="d8be8c21-98b1-439e-8257-4b83c99c427b" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+					<edge src="f44f0a3c-4fcb-4973-af94-e859283a93a6" tgt="92af95d0-f04f-45be-ae92-c82dff4716e7">
+						<att name="condition" type="string" value="text"/>
 					</edge>
 					<comment x="83" y="133" width="166" height="78" color="#ffff99">Fehler, falls Einheiten nicht zur Zutat passen
 
