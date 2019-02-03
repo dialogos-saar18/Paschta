@@ -32,14 +32,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
-			<entry g="drölf" p="d r 9 l f"/>
-			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
-			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
-			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
-			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
-			<entry g="drölf" p="d r 9 l f"/>
-			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
-			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
 			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
 			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
 		</g2p>
