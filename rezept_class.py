@@ -54,7 +54,10 @@ class Recipe:
         elif argument == u'next':
             try:
                 self.schritt += 1
-                return u'Dein nächster Schritt lautet: ' + self.anleitung[self.schritt]
+                antwort = u'Dein nächster Schritt lautet: ' + self.anleitung[self.schritt]
+                if self.schritt == len(self.anleitung)-1:
+                    antwort = antwort + u' Das war dein letzter Schritt'
+                return antwort
             except:
                 return u'Du bist fertig'
         elif argument == u'repeat':
@@ -68,7 +71,7 @@ class Recipe:
                 return u'Dein erster Schritt lautet: ' + self.anleitung[0]
         elif argument == u'last':
             self.schritt = len(self.anleitung - 1)
-            return u'Der letzte Schritt lautet: ' + self.anleitung[self.schritt]
+            return u'Der letzte Schritt lautet: ' + self.anleitung[self.schritt] + u' Das war der letzte Schritt'
         elif argument == u'all':
             r = u''
             for i in range(len(self.anleitung)):
