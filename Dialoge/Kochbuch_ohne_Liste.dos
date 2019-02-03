@@ -63,6 +63,13 @@ $input = $ja {$ = &quot;ja&quot;}| $nein {$ = &quot;nein&quot;};
 $ja = ( ja | jawohl ) [ bitte | gerne | genau] | richtig | korrekt | ja ich möchte sie umrechnen | ändern | umrechnen | definitiv| [das] will ich | [ja] unbedingt | gerne | [eigentlich] schon;
 $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengenangaben] nicht umrechnen | nein nicht umrechnen | ups | definitiv nicht | [das] will ich nicht | lieber nicht | besser nicht | bloß nicht | eigentlich nicht ;</value>
 		</grammar>
+		<grammar id="157b7bf2-ee26-43dc-819d-02dd22132d13">
+			<name>ganz / einzeln</name>
+			<value>root $input;
+ $input = $ganz {$ = &quot;ganz&quot;} | $einzeln {$ = &quot;einzeln&quot; ;
+$ganz = [ganze | komplette] (Anleitung | Zutaten | Liste) [auf einmal] | komplett | ganz | alle [Schritte | Zutaten] | vollständig | das Gesamtpaket | gleichzeitig | alles | ja | erste | A;
+$einzeln = einzeln | einzelne Schritte | Schritt für Schritt | nur einen Schritt | nacheinander | nach und nach | der Reihe nach | nein | zweite | letzteres | B;</value>
+		</grammar>
 		<variable uid="616a7294-ca38-4923-a7fc-b71a822d01de">
 			<name>result</name>
 			<type>string</type>
@@ -289,51 +296,51 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="title" type="string" value="wiederholen"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
-					<att name="width" type="integer" value="1634"/>
-					<att name="height" type="integer" value="841"/>
+					<att name="width" type="integer" value="800"/>
+					<att name="height" type="integer" value="400"/>
 					<groovyFunctions></groovyFunctions>
 					<node uid="2b24541f-459f-4392-8f00-41c154a6e40c" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="322" y="248" fill="#4c4c80"/>
+						<graphics x="224" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="anleitung"/>
 						<att name="label_uid" type="string" value="9e742940-acbb-4c05-b2b9-3ef0e549b3d0"/>
 					</node>
 					<node uid="595d47ad-32ef-417b-a780-3663542dbac9" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="468" y="248" fill="#4c4c80"/>
+						<graphics x="370" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="zutaten"/>
 						<att name="label_uid" type="string" value="0324b06f-14e1-4af0-a1b7-949cfd3a5c4f"/>
 					</node>
 					<node uid="5b49b4a9-a9ba-4c95-a66c-11c10ed79177" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="401" y="40" fill="#9999ff"/>
+						<graphics x="303" y="53" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="5d6b9af2-9e5e-44cb-9be2-39ddc6efa870" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="534" y="248" fill="#4c4c80"/>
+						<graphics x="436" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="eigenschaft"/>
 						<att name="label_uid" type="string" value="5cf72c09-a8ce-49b4-afc2-f84ced7592f2"/>
 					</node>
 					<node uid="902a5231-30c7-4a13-adab-feaaaee7113c" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="402" y="248" fill="#4c4c80"/>
+						<graphics x="304" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="schritt"/>
 						<att name="label_uid" type="string" value="9296bee1-8a4d-43d8-91ec-46d9730d2f81"/>
 					</node>
 					<node uid="aee983ef-d897-4ebd-9741-0f76675a10de" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="207" y="248" fill="#4c4c80"/>
+						<graphics x="109" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="einkaufszettel"/>
 						<att name="label_uid" type="string" value="9b969592-57c0-4f52-b56c-cd0a48371689"/>
 					</node>
 					<node uid="b65986d4-1c3e-45ed-9e3a-aa5e819e756c" class="com.clt.diamant.graph.nodes.TestVariableNode">
-						<graphics x="339" y="143" fill="#c0c0c0"/>
+						<graphics x="241" y="156" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Variable testen"/>
 						<att name="var_uid" type="string" value="3510f6fc-0751-4a5e-b6f2-72a73fd45bf5"/>
 						<att name="var_name" type="string" value="speicher"/>
 					</node>
 					<node uid="c791f54f-2818-47cc-ab59-f48be7b59e0d" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="629" y="248" fill="#4c4c80"/>
+						<graphics x="531" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="contains"/>
 						<att name="label_uid" type="string" value="112a4283-2963-4437-9b71-71058dac5a25"/>
 					</node>
 					<node uid="d1ab6ab6-5f9f-42be-9506-b8bf9adbd800" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="141" y="248" fill="#4c4c80"/>
+						<graphics x="43" y="261" fill="#4c4c80"/>
 						<att name="title" type="string" value="zliste"/>
 						<att name="label_uid" type="string" value="f68c2632-ac0e-4ebe-8564-e870523f337d"/>
 					</node>
@@ -465,7 +472,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="title" type="string" value="Anleitung"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
-					<att name="width" type="integer" value="1636"/>
+					<att name="width" type="integer" value="1008"/>
 					<att name="height" type="integer" value="841"/>
 					<groovyFunctions></groovyFunctions>
 					<grammar id="bfce018d-6b37-4180-9d94-00fbfeb52017">
@@ -474,6 +481,15 @@ Möchtest du den Dialog wirklich abbrechen?</value>
  $input = $hilfe {$ = &quot;hilfe&quot;} | $weiter {$ = &quot;weiter&quot;};
 $weiter = [direkt] (loslegen |anfangen) | nein | ich möchte [direkt] (loslegen | anfangen) | [ich benötige | ich brauche] keine Hilfe | einfach weiter | weiter | [Hilfe] überspringen | Ja ich möchte direkt (loslegen | anfangen);
 $hilfe = [ich benötige | ich brauche] Hilfe | wie kann ich (es | das Kochbuch) verwenden | ja | gerne Hilfe | ich würde gerne Hilfe bekommen | erklär mir wie ich das Kochbuch verwenden kann;</value>
+					</grammar>
+					<grammar id="7a611c77-ede7-4309-ade3-9e3ca31c8f9a">
+						<name>A/Z/E/I</name>
+						<value>root $input;
+ $input = [bitte] [ (sag | erzähl[e]) mir mehr zu | führe | ich (möchte | will) mehr] ( $anleitung {$ = &quot;anleitung&quot;} | $zutaten {$ = &quot;zutaten&quot;} | $einkaufszettel {$ = &quot;einkaufszettel&quot;} | $infos {$ = &quot;infos&quot;} ) [weiter aus | wissen] [bitte];
+$anleitung = [die | zur] Anleitung ;
+$zutaten = [die | zu den] Zutaten ;
+$einkaufszettel = [zum | zur | die | den] ( Einkaufszettel | Zettel  | Liste | Einkaufsliste) ;
+$infos = [zu] [weitere[n]] (Infos | Informationen | Optionen | Daten);</value>
 					</grammar>
 					<node uid="1b254e04-2c3d-4451-a229-33d70d8e2ee0" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="422" y="226" fill="#00b200"/>
@@ -619,6 +635,7 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 						<graphics x="531" y="160" fill="#cc0000"/>
 						<att name="title" type="string" value="A / Z / E / I"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="7a611c77-ede7-4309-ade3-9e3ca31c8f9a"/>
 					</node>
 					<edge src="1b254e04-2c3d-4451-a229-33d70d8e2ee0" tgt="41012946-a18d-4aba-9048-24b6f86bde36">
 					</edge>
@@ -669,16 +686,16 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 					<edge src="da6964b1-bda2-4b0c-a6d9-c3b4d2e9080a" tgt="acb39183-36af-41c8-b65d-0d209bfd4b5a">
 					</edge>
 					<edge src="f53d7bd6-adf8-4a04-85e7-1fa384082e4a" tgt="1b254e04-2c3d-4451-a229-33d70d8e2ee0">
-						<att name="condition" type="string" value="Anleitung"/>
+						<att name="condition" type="string" value="&quot;anleitung&quot;"/>
 					</edge>
 					<edge src="f53d7bd6-adf8-4a04-85e7-1fa384082e4a" tgt="6e61527c-b4bb-4d99-9ca9-3c67e09aa51b">
-						<att name="condition" type="string" value="Zutaten"/>
+						<att name="condition" type="string" value="&quot;zutaten&quot;"/>
 					</edge>
 					<edge src="f53d7bd6-adf8-4a04-85e7-1fa384082e4a" tgt="6832dca4-7a24-44ee-aa2c-b43042c52350">
-						<att name="condition" type="string" value="Einkaufszettel"/>
+						<att name="condition" type="string" value="&quot;einkaufszettel&quot;"/>
 					</edge>
 					<edge src="f53d7bd6-adf8-4a04-85e7-1fa384082e4a" tgt="b1da1224-c4ec-4241-8e45-7b52662f9e63">
-						<att name="condition" type="string" value="weitere Informationen"/>
+						<att name="condition" type="string" value="&quot;infos&quot;"/>
 					</edge>
 				</graph>
 			</att>
@@ -691,19 +708,19 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 			<att name="title" type="string" value="Initialisierung (GUI)"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
-					<att name="width" type="integer" value="1636"/>
-					<att name="height" type="integer" value="841"/>
+					<att name="width" type="integer" value="1008"/>
+					<att name="height" type="integer" value="544"/>
 					<groovyFunctions></groovyFunctions>
 					<node uid="2d841cce-8071-4d96-8103-8769f7aa3b03" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="197" y="10" fill="#9999ff"/>
+						<graphics x="197" y="0" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="45cece56-fb78-48c3-8b9a-485a6c02ff6b" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="310" y="174" fill="#9999ff"/>
+						<graphics x="310" y="167" fill="#9999ff"/>
 						<att name="title" type="string" value="Ende"/>
 					</node>
 					<node uid="52b8d9ec-3e1f-4e93-a5f2-b236edc42d70" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="310" y="112" fill="#00b200"/>
+						<graphics x="310" y="105" fill="#00b200"/>
 						<att name="title" type="string" value="Fehler"/>
 						<att name="prompt" type="text">
 							<value>Abbruch, irgendwas ist schief gelaufen.</value>
@@ -712,7 +729,7 @@ Anleitung, Zutaten, Einkaufszettel oder weitere Informationen.</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="60fe4a31-02e4-4975-b726-f83d311d9324" class="com.clt.diamant.graph.nodes.ScriptNode">
-						<graphics x="323" y="384" fill="#99ffff"/>
+						<graphics x="323" y="377" fill="#99ffff"/>
 						<att name="title" type="string" value="Grammatik (dyngram)"/>
 						<att name="comment" type="text">
 							<value>
@@ -781,7 +798,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						</att>
 					</node>
 					<node uid="7e0348bd-eb6e-478f-8498-c635e5467f42" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="269" y="327" fill="#ff5a5a"/>
+						<graphics x="269" y="320" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Einheitenliste"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -794,7 +811,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="8631d0bd-fdde-449a-956e-ecd51504dd1f" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="224" y="270" fill="#ff5a5a"/>
+						<graphics x="224" y="263" fill="#ff5a5a"/>
 						<att name="title" type="string" value="ingredients"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -807,7 +824,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="c499f91c-6621-4532-8cd9-fcc2c9262443" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="197" y="138" fill="#ff5a5a"/>
+						<graphics x="197" y="131" fill="#ff5a5a"/>
 						<att name="title" type="string" value="URL"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -820,11 +837,11 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
 					<node uid="cca27864-097a-40cd-847e-be9311ddbd8c" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="383" y="441" fill="#9999ff"/>
+						<graphics x="383" y="434" fill="#9999ff"/>
 						<att name="title" type="string" value="Portionen"/>
 					</node>
 					<node uid="d8a41a27-5c26-41cc-919d-2720d9cc0920" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="197" y="73" fill="#00b200"/>
+						<graphics x="197" y="66" fill="#00b200"/>
 						<att name="title" type="string" value="GUI"/>
 						<att name="prompt" type="text">
 							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Gib die Internetadresse zu dem Chefkoch-Rezept, das du kochen &lt;t ph=&quot;'m9C-t@st&quot;&gt; möchtest &lt;/t&gt; , im Textfeld ein &lt;/prosody&gt;&lt;/maryxml&gt;</value>
@@ -833,7 +850,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="f2d077af-0d3d-4281-ab84-566eeb987a9b" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="197" y="213" fill="#ff5a5a"/>
+						<graphics x="197" y="206" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Titel"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -879,6 +896,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 			<graphics x="802" y="779" fill="#b20000"/>
 			<att name="title" type="string" value="ganz / einzeln"/>
 			<att name="language" type="string" value="Deutsch"/>
+			<att name="grammar" type="string" value="157b7bf2-ee26-43dc-819d-02dd22132d13"/>
 		</node>
 		<node uid="86609a7c-876e-4fce-aebf-4da66c423fff" class="com.clt.diamant.graph.nodes.SetVariableNode">
 			<graphics x="1031" y="602" fill="#c0c0c0"/>
@@ -1040,7 +1058,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 			<att name="title" type="string" value="umrechnen "/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
-					<att name="width" type="integer" value="1636"/>
+					<att name="width" type="integer" value="800"/>
 					<att name="height" type="integer" value="841"/>
 					<groovyFunctions></groovyFunctions>
 					<variable uid="6ad675d0-068d-444b-9b70-988847663b6f">
@@ -1303,7 +1321,7 @@ gram = gram + &quot;;&quot;;</value>
 			<att name="title" type="string" value="zutatenliste"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
-					<att name="width" type="integer" value="1636"/>
+					<att name="width" type="integer" value="1008"/>
 					<att name="height" type="integer" value="1050"/>
 					<groovyFunctions></groovyFunctions>
 					<grammar id="0cca7ae3-6bec-4d80-920a-c0928863ba72">
@@ -1315,8 +1333,13 @@ $weiter = weiter | nächste [Zutat] | fahre fort | nächstes | fortfahren | okay
 $zurück = nochmal [hören] | was | wie [viel | bitte] | wiederholen | zurück | halt | warte;
 $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den | zum] Hauptdialog | raus;</value>
 					</grammar>
+					<grammar id="e44e284a-e8c2-4602-b66a-99259a19bd0d">
+						<name>einzeln / alles</name>
+						<value>root $input;
+ $input = ;</value>
+					</grammar>
 					<node uid="01388d5a-fc36-4c8b-a402-b32f789df8b8" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="174" y="874" fill="#00b200"/>
+						<graphics x="60" y="874" fill="#00b200"/>
 						<att name="title" type="string" value="Zettel ergänzt"/>
 						<att name="prompt" type="text">
 							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Dein Aiinkaufszettel wurde ergänzt.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
@@ -1325,7 +1348,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="06660d55-7e92-4eac-8874-006c86052d3a" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="631" y="580" fill="#c0c0c0"/>
+						<graphics x="517" y="580" fill="#c0c0c0"/>
 						<att name="title" type="string" value="counter--"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1336,13 +1359,13 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
 					<node uid="118105cc-32ef-4c96-9290-d89aae4e07ca" class="com.clt.diamant.graph.nodes.TestVariableNode">
-						<graphics x="482" y="774" fill="#c0c0c0"/>
+						<graphics x="368" y="774" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Einzeln / alles (warten)"/>
 						<att name="var_uid" type="string" value="33212ec5-6755-410e-a959-a033992d1db5"/>
 						<att name="var_name" type="string" value="warten"/>
 					</node>
 					<node uid="17278d92-ccb4-49d9-bc08-a5c203873200" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="377" y="310" fill="#c0c0c0"/>
+						<graphics x="263" y="310" fill="#c0c0c0"/>
 						<att name="title" type="string" value="einzeln"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1353,7 +1376,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
 					<node uid="257b966f-2bfa-42e7-96b3-d85294374ea2" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="167" y="794" fill="#00cc99"/>
+						<graphics x="53" y="794" fill="#00cc99"/>
 						<att name="title" type="string" value="Zettel schreiben"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -1364,7 +1387,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="0"/>
 					</node>
 					<node uid="27a8a739-d2f5-4592-a568-752c0c1bba38" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="513" y="331" fill="#c0c0c0"/>
+						<graphics x="399" y="331" fill="#c0c0c0"/>
 						<att name="title" type="string" value="alle"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1375,7 +1398,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
 					<node uid="2dba03b7-8863-4510-94d6-51faea35374b" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="507" y="647" fill="#c0c0c0"/>
+						<graphics x="393" y="647" fill="#c0c0c0"/>
 						<att name="title" type="string" value="counter++"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1386,12 +1409,12 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
 					<node uid="3006f75c-e5ac-446c-b30f-6070ac1c1da2" class="com.clt.diamant.graph.nodes.ConditionalNode">
-						<graphics x="483" y="706" fill="#c0c0c0"/>
+						<graphics x="369" y="706" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Bedingung (counter)"/>
 						<att name="expression" type="string" value="counter &lt;anzahl_zutaten"/>
 					</node>
 					<node uid="393d4f78-365d-41e5-9ba0-6d7df971ff5e" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="416" y="100" fill="#00b200"/>
+						<graphics x="302" y="100" fill="#00b200"/>
 						<att name="title" type="string" value="Alles oder einzeln?"/>
 						<att name="prompt" type="text">
 							<value>Soll ich die Zutaten auf einmal oder einzeln der Reihe nach vorlesen?</value>
@@ -1400,20 +1423,21 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="3a924159-3e88-42ff-adec-c088552d879a" class="com.clt.diamant.graph.nodes.LabelNode">
-						<graphics x="578" y="433" fill="#4c4c80"/>
+						<graphics x="464" y="433" fill="#4c4c80"/>
 						<att name="title" type="string" value="Loop"/>
 					</node>
 					<node uid="47993dda-39f8-4bf4-bc9c-011da06e0f4f" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="448" y="12" fill="#9999ff"/>
+						<graphics x="334" y="12" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="5d4c6cf9-c97b-4a03-b773-9b17d3bd535a" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="423" y="249" fill="#b20000"/>
-						<att name="title" type="string" value="Einzeln / alles"/>
+						<graphics x="309" y="249" fill="#b20000"/>
+						<att name="title" type="string" value="Einzeln / ganz"/>
 						<att name="language" type="string" value="Deutsch"/>
+						<att name="grammar" type="string" value="157b7bf2-ee26-43dc-819d-02dd22132d13"/>
 					</node>
 					<node uid="5e4093a6-7731-421b-a3fa-95d0ef5cb058" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="444" y="428" fill="#00b200"/>
+						<graphics x="330" y="428" fill="#00b200"/>
 						<att name="title" type="string" value="Du brauchst..."/>
 						<att name="prompt" type="text">
 							<value>Du brauchst </value>
@@ -1422,12 +1446,12 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="66ff3d41-d909-422a-86a6-25b79ae99cb5" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="568" y="836" fill="#4c4c80"/>
+						<graphics x="454" y="836" fill="#4c4c80"/>
 						<att name="title" type="string" value="Goto Loop"/>
 						<att name="label_uid" type="string" value="3a924159-3e88-42ff-adec-c088552d879a"/>
 					</node>
 					<node uid="8331156a-e922-4e78-a6cf-92c245441ee9" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="607" y="904" fill="#00b200"/>
+						<graphics x="493" y="904" fill="#00b200"/>
 						<att name="title" type="string" value="Fertig"/>
 						<att name="prompt" type="text">
 							<value>Zurück zum Hauptdialog.</value>
@@ -1436,13 +1460,13 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="8692a7a3-69f2-4b2b-8951-941a253b7996" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="382" y="841" fill="#b20000"/>
+						<graphics x="268" y="841" fill="#b20000"/>
 						<att name="title" type="string" value="Navigation Zutatenliste"/>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammar" type="string" value="0cca7ae3-6bec-4d80-920a-c0928863ba72"/>
 					</node>
 					<node uid="9337c979-876c-473b-bffa-eaf009872ced" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="702" y="784" fill="#00b200"/>
+						<graphics x="588" y="784" fill="#00b200"/>
 						<att name="title" type="string" value="Das war's"/>
 						<att name="prompt" type="text">
 							<value>Das waren alle Zutaten.</value>
@@ -1451,7 +1475,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="935432aa-1185-4e88-9ed8-0e34dde4e5e3" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="503" y="577" fill="#00b200"/>
+						<graphics x="389" y="577" fill="#00b200"/>
 						<att name="title" type="string" value="...&lt;Zutat&gt;"/>
 						<att name="prompt" type="text">
 							<value>result</value>
@@ -1460,21 +1484,21 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="999b841d-6d23-4a90-9606-b61b8a30cbf4" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="709" y="984" fill="#9999ff"/>
+						<graphics x="595" y="984" fill="#9999ff"/>
 						<att name="title" type="string" value="Return: Einkaufsliste?"/>
 					</node>
 					<node uid="c4fff40a-b92e-475e-a57b-1e4c2964e8c0" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="416" y="916" fill="#4c4c80"/>
+						<graphics x="302" y="916" fill="#4c4c80"/>
 						<att name="title" type="string" value="Goto nochmal sagen"/>
 						<att name="label_uid" type="string" value="edafae5d-4343-4b62-8c8c-ebfc9357fa7d"/>
 					</node>
 					<node uid="c62c8b8b-9e99-4351-9c41-e24a6a132adc" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="333" y="916" fill="#4c4c80"/>
+						<graphics x="219" y="916" fill="#4c4c80"/>
 						<att name="title" type="string" value="Goto Loop"/>
 						<att name="label_uid" type="string" value="3a924159-3e88-42ff-adec-c088552d879a"/>
 					</node>
 					<node uid="d689cf78-58a6-427c-97b1-4e30c61858b1" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="420" y="189" fill="#c0c0c0"/>
+						<graphics x="306" y="189" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Initialisierung"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1489,7 +1513,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
 					<node uid="dae19945-79fa-4a38-a330-5a49e62bbe03" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="371" y="371" fill="#00b200"/>
+						<graphics x="257" y="371" fill="#00b200"/>
 						<att name="title" type="string" value="Anleitung"/>
 						<att name="prompt" type="text">
 							<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Die Zutaten werden dir einzeln vorgelesen. Du kannst die Zutaten direkt oder später auf deinen Aiinkaufszettel schreiben lassen.&lt;/prosody&gt;&lt;/maryxml&gt;</value>
@@ -1498,11 +1522,11 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="edafae5d-4343-4b62-8c8c-ebfc9357fa7d" class="com.clt.diamant.graph.nodes.LabelNode">
-						<graphics x="689" y="512" fill="#4c4c80"/>
+						<graphics x="575" y="512" fill="#4c4c80"/>
 						<att name="title" type="string" value="nochmal sagen"/>
 					</node>
 					<node uid="f642fd85-fa61-4713-a0ca-c7dfc28700a6" class="com.clt.diamant.graph.nodes.SetVariableNode">
-						<graphics x="482" y="504" fill="#c0c0c0"/>
+						<graphics x="368" y="504" fill="#c0c0c0"/>
 						<att name="title" type="string" value="nächste Zutat (Schleife)"/>
 						<att name="assignments" type="list">
 							<att name="1" type="list">
@@ -1543,10 +1567,10 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					<edge src="47993dda-39f8-4bf4-bc9c-011da06e0f4f" tgt="393d4f78-365d-41e5-9ba0-6d7df971ff5e">
 					</edge>
 					<edge src="5d4c6cf9-c97b-4a03-b773-9b17d3bd535a" tgt="17278d92-ccb4-49d9-bc08-a5c203873200">
-						<att name="condition" type="string" value="einzeln | der Reihe nach | Schritt für Schritt | nacheinander | ja | erste"/>
+						<att name="condition" type="string" value="&quot;einzeln&quot;"/>
 					</edge>
 					<edge src="5d4c6cf9-c97b-4a03-b773-9b17d3bd535a" tgt="27a8a739-d2f5-4592-a568-752c0c1bba38">
-						<att name="condition" type="string" value="gleichzeitig | [Zutaten] auf einmal | alle[s] | [ganze] Liste | nein | zweite"/>
+						<att name="condition" type="string" value="&quot;ganz&quot;"/>
 					</edge>
 					<edge src="5e4093a6-7731-421b-a3fa-95d0ef5cb058" tgt="f642fd85-fa61-4713-a0ca-c7dfc28700a6">
 					</edge>
@@ -1743,10 +1767,10 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 			<att name="condition" type="string" value="Ende"/>
 		</edge>
 		<edge src="84e72728-e95b-4d3a-9130-d16d229a6aa8" tgt="f7c312e2-51af-4e98-ade8-7bc009027d8e">
-			<att name="condition" type="string" value="komplette Anleitung | komplett"/>
+			<att name="condition" type="string" value="&quot;ganz&quot;"/>
 		</edge>
 		<edge src="84e72728-e95b-4d3a-9130-d16d229a6aa8" tgt="a7e77d86-19d4-400d-883c-65498e0b10bd">
-			<att name="condition" type="string" value="einzeln | einzelne Schritte"/>
+			<att name="condition" type="string" value="&quot;einzeln&quot;"/>
 		</edge>
 		<edge src="86609a7c-876e-4fce-aebf-4da66c423fff" tgt="ecea0418-83ab-49a6-aa4e-b8872110b13c">
 		</edge>
