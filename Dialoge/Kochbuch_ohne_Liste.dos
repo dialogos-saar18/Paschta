@@ -27,14 +27,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<plugin type="resources.de.dialogos.plugin">
+	</plugin>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
+			<entry g="drölf" p="d r 9 l f"/>
+			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
+			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
 			<entry g="Einkaufsliste" p="aI n k aU f s l i: s t @"/>
 			<entry g="Einkaufszettel" p="aI n k aU f s t s e: t @ l"/>
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.lego">
 	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
 		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\TT\DialogOS\test.db"/>
@@ -168,12 +175,6 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<value>undefined</value>
 			<export/>
 		</variable>
-		<variable uid="ab809655-9fca-431a-8b5d-a991c549acd4">
-			<name>index</name>
-			<type>int</type>
-			<value>undefined</value>
-			<export/>
-		</variable>
 		<variable uid="3510f6fc-0751-4a5e-b6f2-72a73fd45bf5">
 			<name>speicher</name>
 			<type>string</type>
@@ -215,7 +216,7 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie] nicht umrec
 			<graphics x="447" y="779" fill="#00b200"/>
 			<att name="title" type="string" value="Einkaufsliste?"/>
 			<att name="prompt" type="text">
-				<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;Das waren alle Zutaten. 
+				<value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;maryxml xmlns=&quot;http://mary.dfki.de/2002/MaryXML&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;0.4&quot; xml:lang=&quot;de&quot;&gt;&lt;prosody pitch=&quot;+0%&quot; range=&quot;-10%&quot; rate=&quot;100%&quot; volume=&quot;loud&quot;&gt;
 &lt;t ph=&quot;'m9C-t@st&quot;&gt;Möchtest&lt;/t&gt; du, dass ich dir eine Einkaufsliste für die kompletten Zutaten &lt;prosody contour=&quot; (70%,-10%) (100%,+100%)&quot;&gt;
 &lt;t ph=&quot;S r aI b @&quot;&gt; schreibe&lt;/t&gt; &lt;/prosody&gt; &lt;/prosody&gt;&lt;/maryxml&gt;</value>
 			</att>
@@ -822,19 +823,6 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 						<att name="discard" type="boolean" value="0"/>
 						<att name="ignoreInputHandlers" type="boolean" value="0"/>
 					</node>
-					<node uid="a3a9684a-c07b-49ab-b80b-4c6347ba49aa" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="323" y="383" fill="#ff5a5a"/>
-						<att name="title" type="string" value="Zutatenliste"/>
-						<att name="output" type="list">
-							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
-								<att name="Text" type="string" value="[&quot;zutaten&quot;,&quot;all&quot;]"/>
-							</att>
-						</att>
-						<att name="reset" type="boolean" value="0"/>
-						<att name="wait" type="boolean" value="0"/>
-						<att name="discard" type="boolean" value="0"/>
-						<att name="ignoreInputHandlers" type="boolean" value="0"/>
-					</node>
 					<node uid="c499f91c-6621-4532-8cd9-fcc2c9262443" class="com.clt.diamant.graph.nodes.InputNode">
 						<graphics x="197" y="138" fill="#ff5a5a"/>
 						<att name="title" type="string" value="URL"/>
@@ -880,14 +868,11 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 					</edge>
 					<edge src="60fe4a31-02e4-4975-b726-f83d311d9324" tgt="cca27864-097a-40cd-847e-be9311ddbd8c">
 					</edge>
-					<edge src="7e0348bd-eb6e-478f-8498-c635e5467f42" tgt="a3a9684a-c07b-49ab-b80b-4c6347ba49aa">
+					<edge src="7e0348bd-eb6e-478f-8498-c635e5467f42" tgt="60fe4a31-02e4-4975-b726-f83d311d9324">
 						<att name="condition" type="string" value="einheiten"/>
 					</edge>
 					<edge src="8631d0bd-fdde-449a-956e-ecd51504dd1f" tgt="7e0348bd-eb6e-478f-8498-c635e5467f42">
 						<att name="condition" type="string" value="ingredients"/>
-					</edge>
-					<edge src="a3a9684a-c07b-49ab-b80b-4c6347ba49aa" tgt="60fe4a31-02e4-4975-b726-f83d311d9324">
-						<att name="condition" type="string" value="result2"/>
 					</edge>
 					<edge src="c499f91c-6621-4532-8cd9-fcc2c9262443" tgt="f2d077af-0d3d-4281-ab84-566eeb987a9b">
 						<att name="condition" type="string" value="&quot;continue&quot;"/>
@@ -1232,7 +1217,7 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="language" type="string" value="Deutsch"/>
 					</node>
 					<node uid="7e1d1938-28e0-42ec-bdb5-f06f983a857a" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="394" y="755" fill="#9999ff"/>
+						<graphics x="367" y="754" fill="#9999ff"/>
 						<att name="title" type="string" value="Return: Hilfe?"/>
 					</node>
 					<node uid="92af95d0-f04f-45be-ae92-c82dff4716e7" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
@@ -1245,7 +1230,7 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="9dda5d05-3e48-4eaa-a0fc-b5309a6feab4" class="com.clt.diamant.graph.nodes.InputNode">
-						<graphics x="196" y="508" fill="#ff5a5a"/>
+						<graphics x="196" y="507" fill="#ff5a5a"/>
 						<att name="title" type="string" value="Eingabe"/>
 						<att name="output" type="list">
 							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
@@ -1267,7 +1252,7 @@ gram = gram + &quot;;&quot;;</value>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" class="com.clt.diamant.graph.nodes.ConditionalNode">
-						<graphics x="341" y="654" fill="#c0c0c0"/>
+						<graphics x="336" y="654" fill="#c0c0c0"/>
 						<att name="title" type="string" value="erfolg?"/>
 						<att name="expression" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
 					</node>
@@ -1331,7 +1316,7 @@ gram = gram + &quot;;&quot;;</value>
 					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="7e1d1938-28e0-42ec-bdb5-f06f983a857a">
 						<att name="condition" type="string" value="text == &quot;Die Mengenangaben wurden umgerechnet&quot;"/>
 					</edge>
-					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33">
+					<edge src="b5e6e60a-64bf-4ae5-b615-3d8076659f1c" tgt="1493b044-d03c-4947-b8ec-c0ecd752a126">
 						<att name="condition" type="string" value="else"/>
 					</edge>
 					<edge src="c9c102e6-3305-4dd1-ac41-9f6ab9a26e33" tgt="686d8982-1308-4482-84ed-77123528342f">
@@ -1411,6 +1396,19 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						</att>
 						<att name="simultaneous" type="boolean" value="0"/>
 					</node>
+					<node uid="0e2b4a8f-3387-49bd-961f-ac1e1c830599" class="com.clt.diamant.graph.nodes.InputNode">
+						<graphics x="428" y="126" fill="#ff5a5a"/>
+						<att name="title" type="string" value="Zutatenliste"/>
+						<att name="output" type="list">
+							<att name="16329b47-0236-44d6-8d0a-808a9d0da781" type="list">
+								<att name="Text" type="string" value="[&quot;zutaten&quot;,&quot;all&quot;]"/>
+							</att>
+						</att>
+						<att name="reset" type="boolean" value="0"/>
+						<att name="wait" type="boolean" value="0"/>
+						<att name="discard" type="boolean" value="0"/>
+						<att name="ignoreInputHandlers" type="boolean" value="0"/>
+					</node>
 					<node uid="118105cc-32ef-4c96-9290-d89aae4e07ca" class="com.clt.diamant.graph.nodes.TestVariableNode">
 						<graphics x="482" y="774" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Einzeln / alles (warten)"/>
@@ -1467,7 +1465,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="expression" type="string" value="counter &lt;anzahl_zutaten"/>
 					</node>
 					<node uid="393d4f78-365d-41e5-9ba0-6d7df971ff5e" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="423" y="122" fill="#00b200"/>
+						<graphics x="418" y="63" fill="#00b200"/>
 						<att name="title" type="string" value="Alles oder einzeln?"/>
 						<att name="prompt" type="text">
 							<value>Soll ich die Zutaten auf einmal oder einzeln der Reihe nach vorlesen?</value>
@@ -1480,7 +1478,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="title" type="string" value="Loop"/>
 					</node>
 					<node uid="47993dda-39f8-4bf4-bc9c-011da06e0f4f" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="446" y="62" fill="#9999ff"/>
+						<graphics x="441" y="3" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="5d4c6cf9-c97b-4a03-b773-9b17d3bd535a" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
@@ -1502,11 +1500,29 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="title" type="string" value="Goto Loop"/>
 						<att name="label_uid" type="string" value="3a924159-3e88-42ff-adec-c088552d879a"/>
 					</node>
+					<node uid="8331156a-e922-4e78-a6cf-92c245441ee9" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+						<graphics x="607" y="904" fill="#00b200"/>
+						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="prompt" type="text">
+							<value>Zurück zum Hauptdialog.</value>
+						</att>
+						<att name="prompt_type" type="string" value="text"/>
+						<att name="wait" type="boolean" value="1"/>
+					</node>
 					<node uid="8692a7a3-69f2-4b2b-8951-941a253b7996" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
 						<graphics x="382" y="841" fill="#b20000"/>
 						<att name="title" type="string" value="Navigation Zutatenliste"/>
 						<att name="language" type="string" value="Deutsch"/>
 						<att name="grammar" type="string" value="0cca7ae3-6bec-4d80-920a-c0928863ba72"/>
+					</node>
+					<node uid="9337c979-876c-473b-bffa-eaf009872ced" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+						<graphics x="702" y="784" fill="#00b200"/>
+						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="prompt" type="text">
+							<value>Das waren alle Zutaten.</value>
+						</att>
+						<att name="prompt_type" type="string" value="text"/>
+						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="935432aa-1185-4e88-9ed8-0e34dde4e5e3" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
 						<graphics x="503" y="577" fill="#00b200"/>
@@ -1518,7 +1534,7 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="999b841d-6d23-4a90-9606-b61b8a30cbf4" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="768" y="909" fill="#9999ff"/>
+						<graphics x="709" y="984" fill="#9999ff"/>
 						<att name="title" type="string" value="Return: Einkaufsliste?"/>
 					</node>
 					<node uid="c4fff40a-b92e-475e-a57b-1e4c2964e8c0" class="com.clt.diamant.graph.nodes.GotoNode">
@@ -1576,6 +1592,9 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					</edge>
 					<edge src="06660d55-7e92-4eac-8874-006c86052d3a" tgt="935432aa-1185-4e88-9ed8-0e34dde4e5e3">
 					</edge>
+					<edge src="0e2b4a8f-3387-49bd-961f-ac1e1c830599" tgt="d689cf78-58a6-427c-97b1-4e30c61858b1">
+						<att name="condition" type="string" value="result2"/>
+					</edge>
 					<edge src="118105cc-32ef-4c96-9290-d89aae4e07ca" tgt="8692a7a3-69f2-4b2b-8951-941a253b7996">
 						<att name="condition" type="string" value="true"/>
 					</edge>
@@ -1593,10 +1612,10 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					<edge src="3006f75c-e5ac-446c-b30f-6070ac1c1da2" tgt="118105cc-32ef-4c96-9290-d89aae4e07ca">
 						<att name="condition" type="string" value="counter &lt;anzahl_zutaten"/>
 					</edge>
-					<edge src="3006f75c-e5ac-446c-b30f-6070ac1c1da2" tgt="999b841d-6d23-4a90-9606-b61b8a30cbf4">
+					<edge src="3006f75c-e5ac-446c-b30f-6070ac1c1da2" tgt="9337c979-876c-473b-bffa-eaf009872ced">
 						<att name="condition" type="string" value="else"/>
 					</edge>
-					<edge src="393d4f78-365d-41e5-9ba0-6d7df971ff5e" tgt="d689cf78-58a6-427c-97b1-4e30c61858b1">
+					<edge src="393d4f78-365d-41e5-9ba0-6d7df971ff5e" tgt="0e2b4a8f-3387-49bd-961f-ac1e1c830599">
 					</edge>
 					<edge src="3a924159-3e88-42ff-adec-c088552d879a" tgt="f642fd85-fa61-4713-a0ca-c7dfc28700a6">
 					</edge>
@@ -1610,6 +1629,8 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					</edge>
 					<edge src="5e4093a6-7731-421b-a3fa-95d0ef5cb058" tgt="f642fd85-fa61-4713-a0ca-c7dfc28700a6">
 					</edge>
+					<edge src="8331156a-e922-4e78-a6cf-92c245441ee9" tgt="999b841d-6d23-4a90-9606-b61b8a30cbf4">
+					</edge>
 					<edge src="8692a7a3-69f2-4b2b-8951-941a253b7996" tgt="257b966f-2bfa-42e7-96b3-d85294374ea2">
 						<att name="condition" type="string" value="&quot;einkaufszettel&quot;"/>
 					</edge>
@@ -1619,8 +1640,10 @@ $ende = [Zutatenliste] abbrechen | Ende | aufhören | Schluss | ferig | [in den 
 					<edge src="8692a7a3-69f2-4b2b-8951-941a253b7996" tgt="c4fff40a-b92e-475e-a57b-1e4c2964e8c0">
 						<att name="condition" type="string" value="&quot;zurück&quot;"/>
 					</edge>
-					<edge src="8692a7a3-69f2-4b2b-8951-941a253b7996" tgt="999b841d-6d23-4a90-9606-b61b8a30cbf4">
+					<edge src="8692a7a3-69f2-4b2b-8951-941a253b7996" tgt="8331156a-e922-4e78-a6cf-92c245441ee9">
 						<att name="condition" type="string" value="&quot;ende&quot;"/>
+					</edge>
+					<edge src="9337c979-876c-473b-bffa-eaf009872ced" tgt="999b841d-6d23-4a90-9606-b61b8a30cbf4">
 					</edge>
 					<edge src="935432aa-1185-4e88-9ed8-0e34dde4e5e3" tgt="2dba03b7-8863-4510-94d6-51faea35374b">
 					</edge>

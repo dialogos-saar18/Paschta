@@ -20,7 +20,7 @@ def call(category, term, recipe):
     if category == "anleitung":
         # term Element von {"first","next","repeat","all","previous", "last"}
         return(recipe.get_schritt(term))
-    # gibt alle Zutaten oder einzelne Zutaten zurück
+    # gibt alle Zutaten oder einzelne Zutaten zurück (mit Mengenangaben, falls vorhanden)
     elif category == "zutaten": 
         return(recipe.get_zutat(term))
     # auslesen der Eigenschaften wie Arbeitszeit, Schwierigkeitsgrad etc.
@@ -49,13 +49,9 @@ class Main(Client):
 
     # "URL"
     # "ingredients"
-    # "ingredients" rezept
     # "title"
-    # "title" rezept
     # "einkaufszettel"
-    # "einkaufszettel" rezept
     # "anleitung"/"zutat"/"eigenschaft" suchbegriff
-    # "anleitung"/"zutat"/"eigenschaft" suchbegriff rezept
     # "portionen" "wert"
     # "exists_zutat" suchbegriff
     def output(self, value):
@@ -69,7 +65,7 @@ class Main(Client):
             print("created recipe")
             # TODO: print title
 
-        # erstellt Liste mit allen Zutaten 
+        # erstellt Liste mit allen Zutaten (ohne Mengenangaben)
         elif value[0].getString().strip('"')=="ingredients":
             self.send(self.recipe.ingredients())
             
