@@ -1,4 +1,5 @@
 # -*- coding: cp1252 -*-
+# umrechnen z.B. von Gramm auf Kilogramm etc.
 def e_umrechnen(einheit_alt, einheit_neu, menge):
     if einheit_alt == einheit_neu:
         m = menge
@@ -42,6 +43,7 @@ def e_umrechnen(einheit_alt, einheit_neu, menge):
         m = ""
     return m    
 
+# ausschreiben abgekürzter Einheiten, da zum Erstellen der Grammatik benötigt
 def e_ausschreiben(einheit):
     if einheit == u'EL, gestr.':
         e = u'EL, gestrichen'

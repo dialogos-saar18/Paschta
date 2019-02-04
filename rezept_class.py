@@ -138,6 +138,7 @@ class Recipe:
 
         else:
             try:
+                #überprüfen, ob Zutat vorkommt
                 me = self.zutaten[bezeichnung][u'menge']
                 if me == 0:
                     me = u''
@@ -148,6 +149,7 @@ class Recipe:
             except:
                 l = []
                 for i in self.zutaten:
+                    # überprüfen, Teilstring der Zutat in der Zutatenliste vorkommt
                     if re.search(bezeichnung, i):
                         me = self.zutaten[i][u'menge']
                         ei = self.zutaten[i][u'einheit']
@@ -161,8 +163,8 @@ class Recipe:
                         l0 = str(l[0])
                     s = l0 + u' ' + l[1] + u' ' + l[2]
                     i = 3
+                    # wenn mehrere Treffer gefunden worden (z.B. brauner Zucker und weißer Zucker)
                     while i < len(l):
-                        print(i)
                         if i%3 == 0:
                             s = s + u' und'
                         if l[i] == 0:
@@ -174,11 +176,12 @@ class Recipe:
                     return s
                         
                 except:
+                    #l ist leer -> keine Zutat gefunden
                     return u'Zutat wird nicht benötigt'
 
     #returns string
     def get_property(self,key):
-        #key error / "all"=> gesamtzeit / übersicht über die einzelnen Zeiten
+        #key error / übersicht über die einzelnen Zeiten / Kalorien / Schwierigkeitsgrad
         try:        
             return self.eigenschaften[key]
         except:
@@ -209,17 +212,19 @@ class Recipe:
     # return value: String, ob die Umrechnung erfolgreich war
     # angabe: "Personen" oder eine Zutat
     # anzahl: liste: [menge, einheit] zum umrechnen oder die Anzahl der Portionen
-    # TODO: argumente anpassen an client, evtl menge in int umrechnen
     def umrechnen(self, anzahl, angabe):
+        # umrechnen nach Personen
         if angabe == u'Personen':
             anzahl = float(anzahl)
             factor = anzahl / self.get_property(u'Portionen')
             self.eigenschaften[u'Portionen'] = anzahl
+        # umrechnen nach Zutat ohne Einheit 
         elif anzahl[1] == "0":
             menge_alt = self.zutaten[angabe][u'menge']
             zahl = anzahl[0]
             zahl = zahl.replace("komma", ".")
             factor = float(zahl) / menge_alt
+        # umrechnen nach Zutat mit Menge und Einheit
         else:
             zahl = anzahl[0]
             zahl = zahl.replace("komma", ".")
@@ -227,6 +232,7 @@ class Recipe:
             einheit_alt = self.zutaten[angabe][u'einheit']
             einheit_neu = anzahl[1]
             menge_alteeinheit = self.zutaten[angabe][u'menge']
+            # e_umrechnen aus einheiten_transf.py
             menge_neueeinheit = e_umrechnen(einheit_alt, einheit_neu, menge_alteeinheit)
             if type(menge_neueeinheit) == str:
                 s = u'Die Umrechnung ist fehlgeschlagen. Einheit ' + einheit_alt + u' lässt sich nicht in ' + einheit_neu + u' umrechnen'
@@ -267,8 +273,10 @@ class Recipe:
         return schritte
 
     # return dict: {u'Zwiebel(n)': {u'menge': 1, u'einheit': u'm.-gro\xdfe'}, u'Zucker':...}
+    # liest Zutaten + Mengenangaben + Einheiten aus Quelltext aus
     def init_zutaten(self, beautifuls):
         zutaten = {}
+        # springt zur Zutatenauflistung im Quelltext
         incr = beautifuls.find(u'table', {u'class': u'incredients'})
         stripped2 = incr.stripped_strings
         strings = incr.strings
@@ -279,6 +287,7 @@ class Recipe:
             if str(type(i)) == "<class 'bs4.element.NavigableString'>":
                 pass
             else:
+                # liest Zutatennamen und Mengenangaben aus Quelltext aus und formatiert sie
                 li = i.findAll(u'td')
                 menge = li[0].contents
                 mengen_angabe= menge[0]
@@ -295,6 +304,7 @@ class Recipe:
                 angaben_z.append(zutat_angabe.strip().lower())
         i = 0
         while i < len(angaben_m):
+            # Zeichen, die in Grammatik Probleme verursachen ersetzen
             m = angaben_m[i]
             z = angaben_z[i]
             z = z.replace(u'(', u'')
@@ -304,6 +314,7 @@ class Recipe:
             z = z.replace(u'.', u'')
             te = [m]
             d = {}
+            # wenn weder Mengenangabe noch Einheit (z.B. Salz und Pfeffer)
             if m == u'':
                 d[u'menge'] = 0
                 d[u'einheit'] = u''
@@ -314,15 +325,14 @@ class Recipe:
                     einheit = m.split()[1]
                 else:
                     einheit = u''
+                # e_ausschreiben aus einheiten_transf.py
                 einheit = e_ausschreiben(einheit)
-                #einheit = einheit.replace(u'(', u'')
-                #einheit = einheit.replace(u')', u'')
                 einheit = einheit.replace(u'/', u'')
-                #einheit = einheit.replace(u',', u'')
                 einheit = einheit.replace(u'.', u'')
                 try:
                     d[u'menge'] = int(zahl)
                     d[u'einheit'] = einheit
+                # wenn Mengenangabe, aber keine Einheit (z.B. 1 Zwiebel)
                 except:
                     d[u'menge'] = 0
                     d[u'einheit'] = zahl
@@ -331,22 +341,28 @@ class Recipe:
         return zutaten
 
     # returns int
+    # liest Anzahl der Portionen aus Quelltext aus
     def init_portionen(self, beautifuls):
         p = beautifuls.find(u'input', {u'name': u'portionen'})
         p = p[u'value']
         return int(p)
 
     #returns dict: {u'schwierigkeitsgrad': u'simpel', ...}
+    # liest Informationen über Zeiten, Kalorien und Schwierigkeitsgrad aus Quelltext aus
     def init_properties(self, beautifuls):
         preparation = {}
         prep = beautifuls.find(id=u'preparation-info')
         l = []
+        # generator object
         stripped = prep.stripped_strings
         i = 0
+        # iterieren über Informationen
         for s in stripped:
+            # Arbeitszeit, Schwierigkeitsgrad etc.
             if i % 2 == 0:
                 key = s
                 key = s.replace(u':', u'')
+            # Werte 
             else:
                 val = u''
                 for n in s:
@@ -356,7 +372,7 @@ class Recipe:
                         val = val + n
                 val = val.strip()
                 if key == u'Arbeitszeit' or key == u'Ruhezeit' or key == u'Koch-/Backzeit':
-                    d = {}
+                    #d = {}
                     val = val[4:]
                     lis = val.split(" ")
                     if len(lis) == 4:
@@ -365,14 +381,16 @@ class Recipe:
                     else:
                         k = int(lis[0])
                         v = lis[1]
-                    d[u'dauer'] = k
-                    d[u'einheit'] = v
+                    #d[u'dauer'] = k
+                    #d[u'einheit'] = v
                     val = u'ca. ' + str(k) + u' ' + v
 
                                     
                 preparation[key] = val
 
             i = i + 1
+
+        # Zeiten einheitlich umrechnen
         ges = 0
         einheiten = []
         try:
@@ -391,6 +409,9 @@ class Recipe:
         except:
             pass
         umr = False
+
+        # wenn nicht alle Einheiten in Minuten sind, alles einheitlich umrechnen
+        # notwendig, um Gesamtzeit (ges) auszurechnen
         for e in einheiten:
             if e != u'Min.':
                 umr = True
@@ -415,13 +436,14 @@ class Recipe:
                 if kze == u'Std.':
                     zeit = zeit * 60
             ges = ges + zeit  
-        di = {}
+
         e = u'Min.'
+        # wenn Gesamtzeit in Minuten zu groß, dann in Stunden umrechnen
         if ges > 300:
             ges = float(ges) / 60
             e = u'Std.'
-        di[u'dauer'] = ges
-        di[u'einheit'] = e
+
+        # Gesamtzeit, Titel und Portionen zu eigenschaften dict hinzufügen
         preparation[u'Gesamtzeit'] = u'ca. ' + str(ges) + u' ' + e
         ti = self.init_titel(beautifuls)
         pi = self.init_portionen(beautifuls)
