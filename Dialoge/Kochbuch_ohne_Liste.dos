@@ -66,7 +66,7 @@ $nein = ( nein [danke] | ne | falsch ) | nein ich möchte [es | sie | die Mengen
 		<grammar id="157b7bf2-ee26-43dc-819d-02dd22132d13">
 			<name>ganz / einzeln</name>
 			<value>root $input;
- $input = $ganz {$ = &quot;ganz&quot;} | $einzeln {$ = &quot;einzeln&quot; ;
+ $input = $ganz {$ = &quot;ganz&quot;} | $einzeln {$ = &quot;einzeln&quot;} ;
 $ganz = [ganze | komplette] (Anleitung | Zutaten | Liste) [auf einmal] | komplett | ganz | alle [Schritte | Zutaten] | vollständig | das Gesamtpaket | gleichzeitig | alles | ja | erste | A;
 $einzeln = einzeln | einzelne Schritte | Schritt für Schritt | nur einen Schritt | nacheinander | nach und nach | der Reihe nach | nein | zweite | letzteres | B;</value>
 		</grammar>
@@ -297,7 +297,7 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
 					<att name="width" type="integer" value="800"/>
-					<att name="height" type="integer" value="400"/>
+					<att name="height" type="integer" value="544"/>
 					<groovyFunctions></groovyFunctions>
 					<node uid="2b24541f-459f-4392-8f00-41c154a6e40c" class="com.clt.diamant.graph.nodes.GotoNode">
 						<graphics x="224" y="261" fill="#4c4c80"/>
@@ -344,6 +344,11 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 						<att name="title" type="string" value="zliste"/>
 						<att name="label_uid" type="string" value="f68c2632-ac0e-4ebe-8564-e870523f337d"/>
 					</node>
+					<node uid="facd3ca1-e77d-4ffd-8316-c0e3ba1acba3" class="com.clt.diamant.graph.nodes.GotoNode">
+						<graphics x="609" y="261" fill="#4c4c80"/>
+						<att name="title" type="string" value="Hauptdialog"/>
+						<att name="label_uid" type="string" value="bb90d713-4708-440b-9277-505a4897b5d9"/>
+					</node>
 					<edge src="5b49b4a9-a9ba-4c95-a66c-11c10ed79177" tgt="b65986d4-1c3e-45ed-9e3a-aa5e819e756c">
 					</edge>
 					<edge src="b65986d4-1c3e-45ed-9e3a-aa5e819e756c" tgt="d1ab6ab6-5f9f-42be-9506-b8bf9adbd800">
@@ -366,6 +371,9 @@ Möchtest du den Dialog wirklich abbrechen?</value>
 					</edge>
 					<edge src="b65986d4-1c3e-45ed-9e3a-aa5e819e756c" tgt="c791f54f-2818-47cc-ab59-f48be7b59e0d">
 						<att name="condition" type="string" value="&quot;contains&quot;"/>
+					</edge>
+					<edge src="b65986d4-1c3e-45ed-9e3a-aa5e819e756c" tgt="facd3ca1-e77d-4ffd-8316-c0e3ba1acba3">
+						<att name="condition" type="string" value="undefined"/>
 					</edge>
 				</graph>
 			</att>
@@ -1049,7 +1057,7 @@ dyngram = dyngram + &quot;$help = hilfe | was kann ich sagen | ich brauche hilfe
 			<att name="title" type="string" value="Ende"/>
 		</node>
 		<node uid="d6a638f2-589a-464a-ab79-b03f7b2d749f" class="com.clt.diamant.graph.nodes.GotoNode">
-			<graphics x="871" y="396" fill="#4c4c80"/>
+			<graphics x="871" y="398" fill="#4c4c80"/>
 			<att name="title" type="string" value="Schritt"/>
 			<att name="label_uid" type="string" value="9296bee1-8a4d-43d8-91ec-46d9730d2f81"/>
 		</node>

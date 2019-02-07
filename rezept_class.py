@@ -33,26 +33,36 @@ class Recipe:
                     buffer.append(arr, 0, numCharsRead);
 
             return buffer.toString()
+        
+        #Easter egg
+        if url == "Ich bin Informatiker":
+            self.title = u'Tiefk\xfchlpizza von bonita sopa'
+            self.anleitung = [u'1. Backofen vorheizen: Auf Ober- und Unterhitze ca. 220 Grad, mit Hei\xdfluft ca. 200 Grad oder im Gasofen auf Stufe 5 bis 6. Wenn das L\xe4mpchen nicht mehr leuchtet, ist das Vorheizen beendet.', u'2. Die noch gefrorene Pizza aus dem Karton nehmen und die Folie entfernen.', u'3. Die Pizza auf den Rost legen. Wer weniger putzen mag, legt noch Backpapier dazwischen.', u'4. Die Pizza auf mittlerer Einschubleiste 10 bis 12 Minuten backen.', u'5. Sobald der K\xe4se geschmolzen ist, kann man die Pizza genie\xdfen.', u'6. Am besten schmeckt dazu eine Club Mate.']
+            self.schritt = 0
+            self.zutaten = {u'Tiefk\xfchlpizza': {u'menge': 1, u'einheit': u''}, u'eventuell Backpapier': {u'menge': 1, u'einheit': u'Bogen'}}
+            self.portionen = 1
+            self.eigenschaften = {u'Kalorien p. P.': u'ca. 874 kcal', u'Portionen': 1, u'Schwierigkeitsgrad': u'fordernd', u'Gesamtzeit': 'ca. 20 Min.', u'Arbeitszeit': u'ca. 10 Min.', u'Koch-/Backzeit': '12 Min.', u'Titel': u'Tiefk\xfchlpizza von bonita sopa'}
 
-        # Quelltext holen
-        url = URL(url)
-        urlCon = url.openConnection()
-        reader = InputStreamReader(urlCon.getInputStream(), "UTF-8")
-        html = read_all(reader)
-        reader.close()
+        else:
+            # Quelltext holen
+            url = URL(url)
+            urlCon = url.openConnection()
+            reader = InputStreamReader(urlCon.getInputStream(), "UTF-8")
+            html = read_all(reader)
+            reader.close()
 
-        # Quelltext parsen
-        soup = bs(html,features="html.parser")
+            # Quelltext parsen
+            soup = bs(html,features="html.parser")
 
-        # Objektattribute initialisieren
-        self.title = self.init_titel(soup) # String
-        self.anleitung = self.init_anleitung(soup) # String list
-        self.schritt = 0
-        self.zutaten = self.init_zutaten(soup) # dict dict
-        #self.zutatenliste = None
-        self.portionen = self.init_portionen(soup)# int
-        self.eigenschaften = self.init_properties(soup) # dict
-
+            # Objektattribute initialisieren
+            self.title = self.init_titel(soup) # String
+            self.anleitung = self.init_anleitung(soup) # String list
+            self.schritt = 0
+            self.zutaten = self.init_zutaten(soup) # dict dict
+            #self.zutatenliste = None
+            self.portionen = self.init_portionen(soup)# int
+            self.eigenschaften = self.init_properties(soup) # dict
+        
     #returns string
     def get_schritt(self, argument): 
         
