@@ -33,9 +33,6 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
   <div style="float:center;"><img src="https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG" alt="Kommandozeile"></img></div>
   </details>
 
-
-![Kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
-
 ### Den Dialog starten
 - Den Dialog im Ordner ```Dialoge``` auswählen und mit Doppelklick öffnen. (Wir empfehlen ```kochbuch_ohne_liste.dos```, da ```kochbuch_mit_liste.dos``` momentan nur im _Stillen Modus_ von DialogOS funktioniert.)
 <br>Alternativ kann man zunächst DialogOS starten und dann im Programm den Dialog öffnen.
