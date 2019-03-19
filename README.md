@@ -21,15 +21,17 @@ Paschta ist ein interaktiver Dialog, der dem Benutzer das Kochen erleichtern sol
   <summary>Navigation auf der Kommandozeile</summary>
   <br>
   <ul>
-<li><code>cmd.exe</code> ausführen (einfach in die Suche eingeben)</li>
-<li>Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der <code>Enter</code>-Taste bestätigen.</li>
-<li>Mit <code>dir</code> kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.</li>
-<li>Mit <code>cd</code>, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.</li>
-<li>Mit <code>cd</code>, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.</li>
-<li>Mit <code>cd..</code> kann man eine Ordnerebene höher wechseln.</li>
+  <li><code>cmd.exe</code> ausführen (einfach in die Suche eingeben)</li>
+  <li>Jede Befehlszeile beginnt mit dem Pfad zu dem Ordner, in dem man sich gerade befindet. Dahinter kann man einen Befehl eintippen und mit der <code>Enter</code>-Taste bestätigen.</li>
+  <li>Mit <code>dir</code> kann man sich den Inhalt des aktuellen Ordners anzeigen lassen.</li>
+  <li>Mit <code>cd</code>, dann _Leerzeichen_ und _Ordnername_ kannst du in einen Unterordner wechseln.</li>
+  <li>Mit <code>cd</code>, dann _Leerzeichen_ und einem Pfad kann man direkt in den gewünschten Ordner wechseln.</li>
+  <li>Mit <code>cd..</code> kann man eine Ordnerebene höher wechseln.</li>
   </ul>
-</details>
-<h4>Beispiel:</h4>
+  
+  <h4>Beispiel:</h4>
+  <div style="float:center;"><img src="https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG" alt="Kommandozeile"></img></div>
+  </details>
 
 
 ![Kommandozeile](https://user-images.githubusercontent.com/36304889/52163374-64abf980-26e1-11e9-9c77-4f097fdb6837.JPG)
