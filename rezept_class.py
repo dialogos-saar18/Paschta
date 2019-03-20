@@ -103,7 +103,7 @@ class Recipe:
         else:
             print (u'Unerwartetes Argument '+str(argument)+u' in get_schritt')
             return ("Fehler")
-            ### TODO: raise Error ?
+            
         
     #option: entweder "all" oder Text, der auf die Einkaufsliste soll
     def einkaufszettel(self,option):
@@ -266,6 +266,11 @@ class Recipe:
                     return u'Du brauchst ' + i
             return u'Nein, ' + zutat + u' brauchst du nicht'
 
+
+
+ # Funktionen zum Initialisieren der Attribute eines Recipe Objekts
+ # (Aulesen der Informationen aus dem Quelltext des gewünschten Rezepts)
+
     def init_titel(self, beautifuls):
         t = beautifuls.find(u'title')
         t = t.contents[0]
@@ -382,7 +387,6 @@ class Recipe:
                         val = val + n
                 val = val.strip()
                 if key == u'Arbeitszeit' or key == u'Ruhezeit' or key == u'Koch-/Backzeit':
-                    #d = {}
                     val = val[4:]
                     lis = val.split(" ")
                     if len(lis) == 4:
@@ -391,8 +395,6 @@ class Recipe:
                     else:
                         k = int(lis[0])
                         v = lis[1]
-                    #d[u'dauer'] = k
-                    #d[u'einheit'] = v
                     val = u'ca. ' + str(k) + u' ' + v
 
                                     
@@ -400,7 +402,7 @@ class Recipe:
 
             i = i + 1
 
-        # Zeiten einheitlich umrechnen
+        # Liste aller vorkommenden Zeiteinheiten erstellen
         ges = 0
         einheiten = []
         try:
@@ -465,11 +467,3 @@ class Recipe:
 
 
                                              
-    
-
-'''
-class Nutzer:
-    def __init__(self, name):
-        load_user(name)
-        self.handicap #wie viel länger oder kürzer braucht der nutzer (in Prozent)
-'''
